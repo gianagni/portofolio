@@ -4,59 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Dito</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* CSS Variables for the new dark theme's color scheme */
+
         :root {
-            --primary-dark-blue: #01244E; /* Main background color */
-            --secondary-light-blue: #66CCFF; /* Accent color (lighter blue) */
-            --accent-dark-hover: #3399CC; /* Darker accent for hover states */
-            --text-light: #f8f8f8; /* Light text color for dark backgrounds */
-            --card-bg: #ffffff; /* White background for cards and forms */
-            --card-text-dark: #333333; /* Dark text color for content on white cards */
-            --shadow-dark: rgba(0, 0, 0, 0.3); /* Darker shadow for elements on dark background */
-            --border-dark: rgba(255, 255, 255, 0.1); /* Light border for elements on dark background */
+            --primary-dark-blue: #01244E; 
+            --secondary-light-blue: #66CCFF; 
+            --accent-dark-hover: #3399CC; 
+            --text-light: #f8f8f8; 
+            --card-bg: #ffffff; 
+            --card-text-dark: #333333; 
+            --shadow-dark: rgba(0, 0, 0, 0.3); 
+            --border-dark: rgba(255, 255, 255, 0.1); 
         }
 
-        /* Base styles for the body */
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--text-light); /* Main text color is light */
-            background-color: var(--primary-dark-blue); /* Main background is dark blue */
+            color: var(--text-light); 
+            background-color: var(--primary-dark-blue); 
             overflow-x: hidden;
-            font-size: 1.25rem; /* Increased base font size */
+            font-size: 1.25rem; 
         }
         
         /* Navbar styles */
         .navbar {
-            background-color: #000000; /* Changed to black as per image */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.5); /* Adjusted shadow for dark background */
-            padding: 15px 0;
+            background-color: #000000; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5); 
         }
         
         .navbar-brand {
             font-weight: 700;
-            color: var(--text-light) !important; /* Light brand text color */
-            font-size: 2.1rem; /* Increased navbar brand font size */
+            color: var(--text-light) !important;
+            font-size: 2.1rem; 
         }
         
         .nav-link {
             font-weight: 500;
             margin: 0 10px;
-            color: var(--text-light) !important; /* Light link text color */
-            font-size: 1.25rem; /* Increased nav-link font size */
+            color: var(--text-light) !important; 
+            font-size: 1.25rem;
             position: relative;
         }
         
         .nav-link:hover {
-            color: var(--secondary-light-blue) !important; /* Accent color on hover */
+            color: var(--secondary-light-blue) !important; 
         }
         
         .nav-link::after {
@@ -66,7 +60,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--secondary-light-blue); /* Accent color for underline */
+            background-color: var(--secondary-light-blue); 
             transition: width 0.3s;
         }
         
@@ -74,7 +68,6 @@
             width: 100%;
         }
 
-        /* Hero image styles */
         .hero-img {
             max-width: 100%;
             height: auto;
@@ -83,9 +76,8 @@
             margin-top: 20px
         }
         
-        /* Hero section styles */
         .hero-section {
-            /* Using the newly uploaded image as background */
+        
             background-image: url('assets/image/japan-background-digital-art.jpg'); 
             background-size:cover;
             background-repeat: no-repeat;
@@ -93,59 +85,59 @@
             padding: 70px 0;
             position: relative;
             overflow: hidden;
-            color: var(--text-light); /* Light hero text color */
+            color: var(--text-light);
         }
         
         .hero-content h1 {
             font-weight: 700;
-            font-size: 4.5rem; /* Increased h1 font size in hero */
+            font-size: 4.5rem; 
             margin-bottom: 10px;
             margin-top: 30px;
-            color: var(--text-light); /* Light h1 hero text color */
+            color: var(--text-light); 
         }
         
         .hero-content h1 span {
-            color: var(--secondary-light-blue); /* Accent color for name */
+            color: var(--secondary-light-blue); 
         }
         
         .hero-content p {
-            font-size: 1.5rem; /* Increased paragraph font size in hero */
-            color: var(--text-light); /* Light hero paragraph text color */
+            font-size: 1.5rem;
+            color: var(--text-light); 
             margin-bottom: 30px;
         }
         
         /* Primary button styles */
         .btn-primary {
-            background-color: var(--secondary-light-blue); /* Accent color for primary button */
+            background-color: var(--secondary-light-blue);
             border: none;
-            padding: 16px 36px; /* Increased padding */
+            padding: 16px 36px; 
             font-weight: 500;
             transition: all 0.3s;
             border-radius: 0.5rem;
-            color: var(--primary-dark-blue); /* Dark text color for buttons */
-            font-size: 1.2rem; /* Increased button font size */
+            color: var(--primary-dark-blue); 
+            font-size: 1.2rem; 
         }
         
         .btn-primary:hover {
-            background-color: var(--accent-dark-hover); /* Darker accent color on hover */
+            background-color: var(--accent-dark-hover); 
             transform: translateY(-3px);
         }
         
         /* Outline button styles */
         .btn-outline-primary {
-            background-color: transparent; /* Transparent background */
-            border: 2px solid var(--secondary-light-blue); /* Accent color border */
+            background-color: transparent; 
+            border: 2px solid var(--secondary-light-blue); 
             padding: 16px 36px; /* Increased padding */
             font-weight: 500;
             transition: all 0.3s;
             border-radius: 0.5rem;
-            color: var(--secondary-light-blue); /* Accent text color */
-            font-size: 1.2rem; /* Increased button font size */
+            color: var(--secondary-light-blue); 
+            font-size: 1.2rem; 
         }
         
         .btn-outline-primary:hover {
-            background-color: var(--secondary-light-blue); /* Accent background on hover */
-            color: var(--primary-dark-blue); /* Dark text color on hover */
+            background-color: var(--secondary-light-blue); 
+            color: var(--primary-dark-blue); 
             transform: translateY(-3px);
         }
         
@@ -155,8 +147,8 @@
             margin-bottom: 50px;
             position: relative;
             display: inline-block;
-            color: var(--text-light); /* Light title color for dark sections */
-            font-size: 3rem; /* Increased section title font size */
+            color: var(--text-light); 
+            font-size: 3rem; 
         }
         
         .section-title::after {
@@ -166,7 +158,7 @@
             height: 4px;
             bottom: -10px;
             left: 0;
-            background-color: var(--secondary-light-blue); /* Accent color for title underline */
+            background-color: var(--secondary-light-blue);
             border-radius: 2px;
         }
         
@@ -177,8 +169,8 @@
         
         /* About section styles */
         .about-section {
-            background-color: var(--primary-dark-blue); /* Dark blue background */
-            color: var(--text-light); /* Light text color */
+            background-color: var(--primary-dark-blue); 
+            color: var(--text-light); 
         }
         
         .about-img {
@@ -192,15 +184,15 @@
         }
         
         .about-section h3 {
-            font-size: 2rem; /* Increased h3 font size in about section */
+            font-size: 2rem; 
         }
 
         .about-section p {
-            font-size: 1.3rem; /* Increased paragraph font size in about section */
+            font-size: 1.3rem; 
         }
 
         .about-section h4 {
-            font-size: 1.8rem; /* Increased h4 font size in about section */
+            font-size: 1.8rem; 
         }
 
         .skill-item {
@@ -211,63 +203,63 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
-            color: var(--text-light); /* Light skill text color */
-            font-size: 1.2rem; /* Increased skill name font size */
+            color: var(--text-light); 
+            font-size: 1.2rem; 
         }
         
         .progress {
-            height: 14px; /* Slightly increased progress bar height */
+            height: 14px; 
             border-radius: 7px;
-            background-color: var(--border-dark); /* Light border for progress bar background */
+            background-color: var(--border-dark); 
         }
         
         .progress-bar {
-            background-color: var(--secondary-light-blue); /* Accent color for progress bar */
+            background-color: var(--secondary-light-blue); 
         }
         
         /* Services section styles */
         .services-section {
-            background-color: var(--primary-dark-blue); /* Dark blue background */
+            background-color: var(--primary-dark-blue); 
         }
         
         .service-card {
-            background-color: var(--card-bg); /* White card background */
+            background-color: var(--card-bg); 
             border-radius: 10px;
-            padding: 35px; /* Increased padding */
+            padding: 35px; 
             box-shadow: 0 10px 30px var(--shadow-dark);
             transition: all 0.3s;
             height: 100%;
-            border: 1px solid var(--border-dark); /* Light border */
+            border: 1px solid var(--border-dark); 
             margin-top: 25px;
             margin-bottom: 25px;
-            color: var(--card-text-dark); /* Dark text color for content on white cards */
+            color: var(--card-text-dark); 
         }
         
         .service-card h4 {
-            font-size: 1.8rem; /* Increased service card title font size */
-            color: var(--card-text-dark); /* Dark card title color */
+            font-size: 1.8rem; 
+            color: var(--card-text-dark); 
         }
 
         .service-card p {
-            font-size: 1.3rem; /* Increased service card paragraph font size */
-            color: var(--card-text-dark); /* Dark card paragraph color */
+            font-size: 1.3rem; 
+            color: var(--card-text-dark); 
         }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 204, 255, 0.2); /* Accent shadow on hover */
-            border-color: var(--secondary-light-blue); /* Accent border on hover */
+            box-shadow: 0 15px 40px rgba(102, 204, 255, 0.2); 
+            border-color: var(--secondary-light-blue); 
         }
         
         .service-icon {
-            font-size: 3rem; /* Increased service icon size */
-            color: var(--secondary-light-blue); /* Accent color for service icon */
+            font-size: 3rem; 
+            color: var(--secondary-light-blue); 
             margin-bottom: 20px;
         }
         
         /* Portfolio section styles */
         .portfolio-section {
-            background-color: var(--primary-dark-blue); /* Dark blue background */
+            background-color: var(--primary-dark-blue); 
         }
 
         .portfolio-item {
@@ -276,7 +268,7 @@
             overflow: hidden;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px var(--shadow-dark);
-            border: 1px solid var(--border-dark); /* Light border */
+            border: 1px solid var(--border-dark); 
         }
         
         .portfolio-img {
@@ -289,7 +281,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(102, 204, 255, 0.9); /* Accent color overlay */
+            background: rgba(102, 204, 255, 0.9); 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -311,71 +303,71 @@
         
         .portfolio-title {
             font-weight: 600;
-            font-size: 1.6rem; /* Increased portfolio title font size */
+            font-size: 1.6rem; 
             margin-bottom: 10px;
         }
 
         .portfolio-overlay p {
-            font-size: 1.3rem; /* Increased portfolio overlay paragraph font size */
+            font-size: 1.3rem; 
         }
         
         /* Contact info styles */
         .contact-section {
-            background-color: var(--primary-dark-blue); /* Dark blue background */
+            background-color: var(--primary-dark-blue); 
         }
 
         .contact-info {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            color: var(--text-light); /* Light text color */
+            color: var(--text-light); 
         }
         
         .contact-icon {
-            width: 60px; /* Increased contact icon size */
-            height: 60px; /* Increased contact icon size */
-            background-color: rgba(102, 204, 255, 0.1); /* Transparent accent icon background */
+            width: 60px; 
+            height: 60px; 
+            background-color: rgba(102, 204, 255, 0.1); 
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 20px; /* Increased margin */
-            color: var(--secondary-light-blue); /* Accent color for icon */
-            font-size: 1.5rem; /* Increased contact icon font size */
+            margin-right: 20px;
+            color: var(--secondary-light-blue); 
+            font-size: 1.5rem; 
         }
         
         .contact-info h5 {
-            color: var(--text-light); /* Light contact title color */
-            font-size: 1.4rem; /* Increased contact info title font size */
+            color: var(--text-light); 
+            font-size: 1.4rem; 
         }
 
         .contact-info p {
-            color: var(--text-light); /* Light contact paragraph color */
-            font-size: 1.2rem; /* Increased contact info paragraph font size */
+            color: var(--text-light); 
+            font-size: 1.2rem; 
         }
 
         /* Form control styles */
         .form-control {
-            padding: 20px; /* Increased padding */
+            padding: 20px; 
             border-radius: 8px;
             margin-bottom: 20px;
-            border: 1px solid var(--border-dark); /* Light border */
-            font-size: 1.25rem; /* Increased input form font size */
-            background-color: var(--card-bg); /* White input background */
-            color: var(--card-text-dark); /* Dark input text color */
+            border: 1px solid var(--border-dark);
+            font-size: 1.25rem; 
+            background-color: var(--card-bg); 
+            color: var(--card-text-dark); 
         }
         
         .form-control:focus {
             box-shadow: none;
-            border-color: var(--secondary-light-blue); /* Accent border on focus */
+            border-color: var(--secondary-light-blue); 
         }
         
         /* Footer styles */
         footer {
-            background-color: var(--primary-dark-blue); /* Dark blue footer background */
-            color: var(--text-light); /* Light footer text color */
+            background-color: var(--primary-dark-blue); 
+            color: var(--text-light); 
             padding: 50px 0 20px;
-            font-size: 1.1rem; /* Increased footer font size */
+            font-size: 1.1rem; 
         }
         
         /* Social icons styles */
@@ -383,18 +375,18 @@
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            width: 50px; /* Increased social icon size */
-            height: 50px; /* Increased social icon size */
-            background-color: rgba(255,255,255,0.1); /* Light transparent background */
+            width: 50px; 
+            height: 50px; 
+            background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
             color: white;
             margin-right: 10px;
             transition: all 0.3s;
-            font-size: 1.4rem; /* Increased social icon font size */
+            font-size: 1.4rem; 
         }
         
         .social-icons a:hover {
-            background-color: var(--secondary-light-blue); /* Accent color on hover */
+            background-color: var(--secondary-light-blue); 
             transform: translateY(-5px);
         }
         
@@ -403,16 +395,16 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px; /* Increased back to top button size */
-            height: 60px; /* Increased back to top button size */
-            background-color: var(--secondary-light-blue); /* Accent color for back to top button */
-            color: var(--primary-dark-blue); /* Dark text color for button */
+            width: 60px; 
+            height: 60px;
+            background-color: var(--secondary-light-blue); 
+            color: var(--primary-dark-blue); 
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.4rem; /* Increased back to top button font size */
-            box-shadow: 0 5px 15px rgba(102, 204, 255, 0.3); /* Accent shadow */
+            font-size: 1.4rem; 
+            box-shadow: 0 5px 15px rgba(102, 204, 255, 0.3); 
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s;
@@ -424,7 +416,6 @@
             visibility: visible;
         }
         
-        /* Media Queries for responsiveness */
         @media (max-width: 991.98px) {
             body {
                 font-size: 1.1rem;
