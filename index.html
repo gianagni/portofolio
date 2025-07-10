@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Dito</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS Variables for the new dark theme's color scheme */
+        :root {
+            --primary-dark-blue: #01244E; /* Main background color */
+            --secondary-light-blue: #66CCFF; /* Accent color (lighter blue) */
+            --accent-dark-hover: #3399CC; /* Darker accent for hover states */
+            --text-light: #f8f8f8; /* Light text color for dark backgrounds */
+            --card-bg: #ffffff; /* White background for cards and forms */
+            --card-text-dark: #333333; /* Dark text color for content on white cards */
+            --shadow-dark: rgba(0, 0, 0, 0.3); /* Darker shadow for elements on dark background */
+            --border-dark: rgba(255, 255, 255, 0.1); /* Light border for elements on dark background */
+        }
+
+        /* Base styles for the body */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light); /* Main text color is light */
+            background-color: var(--primary-dark-blue); /* Main background is dark blue */
+            overflow-x: hidden;
+            font-size: 1.25rem; /* Increased base font size */
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            background-color: #000000; /* Changed to black as per image */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.5); /* Adjusted shadow for dark background */
+            padding: 15px 0;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--text-light) !important; /* Light brand text color */
+            font-size: 2.1rem; /* Increased navbar brand font size */
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            margin: 0 10px;
+            color: var(--text-light) !important; /* Light link text color */
+            font-size: 1.25rem; /* Increased nav-link font size */
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary-light-blue) !important; /* Accent color on hover */
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--secondary-light-blue); /* Accent color for underline */
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero image styles */
+        .hero-img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s;
+            margin-bottom: -50px;
+            margin-top: 20px
+        }
+        
+        /* Hero section styles */
+        .hero-section {
+            /* Using the newly uploaded image as background */
+            background-image: url('assets/image/japan-background-digital-art.jpg'); 
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding: 70px 0;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-light); /* Light hero text color */
+        }
+        
+        .hero-content h1 {
+            font-weight: 700;
+            font-size: 4.5rem; /* Increased h1 font size in hero */
+            margin-bottom: 10px;
+            margin-top: 30px;
+            color: var(--text-light); /* Light h1 hero text color */
+        }
+        
+        .hero-content h1 span {
+            color: var(--secondary-light-blue); /* Accent color for name */
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem; /* Increased paragraph font size in hero */
+            color: var(--text-light); /* Light hero paragraph text color */
+            margin-bottom: 30px;
+        }
+        
+        /* Primary button styles */
+        .btn-primary {
+            background-color: var(--secondary-light-blue); /* Accent color for primary button */
+            border: none;
+            padding: 16px 36px; /* Increased padding */
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 0.5rem;
+            color: var(--primary-dark-blue); /* Dark text color for buttons */
+            font-size: 1.2rem; /* Increased button font size */
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent-dark-hover); /* Darker accent color on hover */
+            transform: translateY(-3px);
+        }
+        
+        /* Outline button styles */
+        .btn-outline-primary {
+            background-color: transparent; /* Transparent background */
+            border: 2px solid var(--secondary-light-blue); /* Accent color border */
+            padding: 16px 36px; /* Increased padding */
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 0.5rem;
+            color: var(--secondary-light-blue); /* Accent text color */
+            font-size: 1.2rem; /* Increased button font size */
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--secondary-light-blue); /* Accent background on hover */
+            color: var(--primary-dark-blue); /* Dark text color on hover */
+            transform: translateY(-3px);
+        }
+        
+        /* Section title styles */
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            color: var(--text-light); /* Light title color for dark sections */
+            font-size: 3rem; /* Increased section title font size */
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            bottom: -10px;
+            left: 0;
+            background-color: var(--secondary-light-blue); /* Accent color for title underline */
+            border-radius: 2px;
+        }
+        
+        /* Padding for each section */
+        .about-section, .services-section, .portfolio-section, .contact-section {
+            padding: 100px 0;
+        }
+        
+        /* About section styles */
+        .about-section {
+            background-color: var(--primary-dark-blue); /* Dark blue background */
+            color: var(--text-light); /* Light text color */
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            box-shadow: 0 10px 20px var(--shadow-dark);
+            transition: transform 0.3s;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-section h3 {
+            font-size: 2rem; /* Increased h3 font size in about section */
+        }
+
+        .about-section p {
+            font-size: 1.3rem; /* Increased paragraph font size in about section */
+        }
+
+        .about-section h4 {
+            font-size: 1.8rem; /* Increased h4 font size in about section */
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: var(--text-light); /* Light skill text color */
+            font-size: 1.2rem; /* Increased skill name font size */
+        }
+        
+        .progress {
+            height: 14px; /* Slightly increased progress bar height */
+            border-radius: 7px;
+            background-color: var(--border-dark); /* Light border for progress bar background */
+        }
+        
+        .progress-bar {
+            background-color: var(--secondary-light-blue); /* Accent color for progress bar */
+        }
+        
+        /* Services section styles */
+        .services-section {
+            background-color: var(--primary-dark-blue); /* Dark blue background */
+        }
+        
+        .service-card {
+            background-color: var(--card-bg); /* White card background */
+            border-radius: 10px;
+            padding: 35px; /* Increased padding */
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            transition: all 0.3s;
+            height: 100%;
+            border: 1px solid var(--border-dark); /* Light border */
+            margin-top: 25px;
+            margin-bottom: 25px;
+            color: var(--card-text-dark); /* Dark text color for content on white cards */
+        }
+        
+        .service-card h4 {
+            font-size: 1.8rem; /* Increased service card title font size */
+            color: var(--card-text-dark); /* Dark card title color */
+        }
+
+        .service-card p {
+            font-size: 1.3rem; /* Increased service card paragraph font size */
+            color: var(--card-text-dark); /* Dark card paragraph color */
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 204, 255, 0.2); /* Accent shadow on hover */
+            border-color: var(--secondary-light-blue); /* Accent border on hover */
+        }
+        
+        .service-icon {
+            font-size: 3rem; /* Increased service icon size */
+            color: var(--secondary-light-blue); /* Accent color for service icon */
+            margin-bottom: 20px;
+        }
+        
+        /* Portfolio section styles */
+        .portfolio-section {
+            background-color: var(--primary-dark-blue); /* Dark blue background */
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            border: 1px solid var(--border-dark); /* Light border */
+        }
+        
+        .portfolio-img {
+            transition: transform 0.5s;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(102, 204, 255, 0.9); /* Accent color overlay */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-title {
+            font-weight: 600;
+            font-size: 1.6rem; /* Increased portfolio title font size */
+            margin-bottom: 10px;
+        }
+
+        .portfolio-overlay p {
+            font-size: 1.3rem; /* Increased portfolio overlay paragraph font size */
+        }
+        
+        /* Contact info styles */
+        .contact-section {
+            background-color: var(--primary-dark-blue); /* Dark blue background */
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            color: var(--text-light); /* Light text color */
+        }
+        
+        .contact-icon {
+            width: 60px; /* Increased contact icon size */
+            height: 60px; /* Increased contact icon size */
+            background-color: rgba(102, 204, 255, 0.1); /* Transparent accent icon background */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px; /* Increased margin */
+            color: var(--secondary-light-blue); /* Accent color for icon */
+            font-size: 1.5rem; /* Increased contact icon font size */
+        }
+        
+        .contact-info h5 {
+            color: var(--text-light); /* Light contact title color */
+            font-size: 1.4rem; /* Increased contact info title font size */
+        }
+
+        .contact-info p {
+            color: var(--text-light); /* Light contact paragraph color */
+            font-size: 1.2rem; /* Increased contact info paragraph font size */
+        }
+
+        /* Form control styles */
+        .form-control {
+            padding: 20px; /* Increased padding */
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-dark); /* Light border */
+            font-size: 1.25rem; /* Increased input form font size */
+            background-color: var(--card-bg); /* White input background */
+            color: var(--card-text-dark); /* Dark input text color */
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--secondary-light-blue); /* Accent border on focus */
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: var(--primary-dark-blue); /* Dark blue footer background */
+            color: var(--text-light); /* Light footer text color */
+            padding: 50px 0 20px;
+            font-size: 1.1rem; /* Increased footer font size */
+        }
+        
+        /* Social icons styles */
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px; /* Increased social icon size */
+            height: 50px; /* Increased social icon size */
+            background-color: rgba(255,255,255,0.1); /* Light transparent background */
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+            font-size: 1.4rem; /* Increased social icon font size */
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary-light-blue); /* Accent color on hover */
+            transform: translateY(-5px);
+        }
+        
+        /* Back to Top button styles */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px; /* Increased back to top button size */
+            height: 60px; /* Increased back to top button size */
+            background-color: var(--secondary-light-blue); /* Accent color for back to top button */
+            color: var(--primary-dark-blue); /* Dark text color for button */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.4rem; /* Increased back to top button font size */
+            box-shadow: 0 5px 15px rgba(102, 204, 255, 0.3); /* Accent shadow */
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Media Queries for responsiveness */
+        @media (max-width: 991.98px) {
+            body {
+                font-size: 1.1rem;
+            }
+            .navbar-brand {
+                font-size: 1.9rem;
+            }
+            .nav-link {
+                font-size: 1.1rem;
+            }
+            .hero-content h1 {
+                font-size: 3.5rem;
+            }
+            .hero-content p {
+                font-size: 1.3rem;
+            }
+            .btn-primary, .btn-outline-primary {
+                font-size: 1.1rem;
+                padding: 14px 32px;
+            }
+            .section-title {
+                font-size: 2.6rem;
+            }
+            .about-section h3 {
+                font-size: 1.8rem;
+            }
+            .about-section p {
+                font-size: 1.2rem;
+            }
+            .about-section h4 {
+                font-size: 1.6rem;
+            }
+            .skill-name {
+                font-size: 1.1rem;
+            }
+            .progress {
+                height: 12px;
+            }
+            .service-card h4 {
+                font-size: 1.6rem;
+            }
+            .service-card p {
+                font-size: 1.2rem;
+            }
+            .portfolio-title {
+                font-size: 1.4rem;
+            }
+            .portfolio-overlay p {
+                font-size: 1.1rem;
+            }
+            .contact-info h5 {
+                font-size: 1.3rem;
+            }
+            .contact-info p {
+                font-size: 1.1rem;
+            }
+            .form-control {
+                font-size: 1.1rem;
+                padding: 16px;
+            }
+            footer {
+                font-size: 1rem;
+            }
+            .contact-icon, .social-icons a, .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            body {
+                font-size: 1rem;
+            }
+            .navbar-brand {
+                font-size: 1.7rem;
+            }
+            .nav-link {
+                font-size: 1rem;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            .btn-primary, .btn-outline-primary {
+                font-size: 1rem;
+                padding: 12px 28px;
+            }
+            .section-title {
+                font-size: 2.4rem;
+            }
+            .about-section h3 {
+                font-size: 1.6rem;
+            }
+            .about-section p {
+                font-size: 1.1rem;
+            }
+            .about-section h4 {
+                font-size: 1.4rem;
+            }
+            .skill-name {
+                font-size: 1rem;
+            }
+            .progress {
+                height: 10px;
+            }
+            .service-card h4 {
+                font-size: 1.4rem;
+            }
+            .service-card p {
+                font-size: 1.1rem;
+            }
+            .portfolio-title {
+                font-size: 1.3rem;
+            }
+            .portfolio-overlay p {
+                font-size: 1rem;
+            }
+            .contact-info h5 {
+                font-size: 1.2rem;
+            }
+            .contact-info p {
+                font-size: 1rem;
+            }
+            .form-control {
+                font-size: 1rem;
+                padding: 14px;
+            }
+            footer {
+                font-size: 0.9rem;
+            }
+            .contact-icon, .social-icons a, .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .services-section .col-lg-4 {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Tombol Kembali ke Atas -->
+    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Portofolio Dito</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1>Halo, saya <span>Dito</span></h1>
+                        <p>Saya menciptakan desain yang tidak hanya indah, tetapi juga memiliki dampak. Berkomitmen untuk membangun identitas visual yang kuat dan efektif, memastikan setiap karya menyampaikan pesan Anda dengan jelas dan tak terlupakan..</p>
+                        <div class="d-flex flex-wrap">
+                            <a href="#portfolio" class="btn btn-primary me-3 mb-3">Lihat Desain Saya</a>
+                            <a href="#contact" class="btn btn-outline-primary mb-3">Hubungi Saya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-img text-center">
+                        <!-- Foto profil Dito -->
+                        <img src="assets/image/WhatsApp Image 2025-07-09 at 19.26.41_aee1a09b.jpg" alt="Foto Profil Dito" class="img-fluid rounded-full shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title text-center">Tentang Saya</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <!-- Replace 'img/tentang-saya-gambar.png' with the path to your about image -->
+                    <img src="assets/image/CV DITO_page-0001.jpg" alt="Gambar Tentang Saya" class="img-fluid about-img">
+                </div>
+                <div class="col-lg-7">
+                    <h3 class="mb-5">Siapa saya?</h3>
+                    <p class="mb-5">Halo! Saya Nandito Gianza Agni, seorang desainer grafis yang bersemangat dengan latar belakang pendidikan di Teknik Komputer Jaringan. Perjalanan saya di dunia desain didorong oleh kecintaan pada seni visual dan keinginan untuk menciptakan solusi visual yang berdampakSaya percaya bahwa desain adalah tentang komunikasi yang efektif; bukan hanya estetika, tetapi bagaimana sebuah visual mampu bercerita dan meninggalkan kesan. Dengan keahlian di Photoshop, Figma, HTML/CSS, Canva, dan Aplikasi editing lain saya berdedikasi untuk mengubah ide menjadi karya nyata yang memukau.Sebagai individu yang supel dan mudah beradaptasi, saya selalu mencari cara untuk menghadirkan desain yang relevan, inovatif, dan berkesan. Mari berkolaborasi untuk mewujudkan visi kreatif Anda!.</p>
+                    <h4 class="mb-4">Keahlian Saya</h4>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Photoshop</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Figma</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Canva</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title text-center">Layanan Saya</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card rounded-lg shadow-md p-6">
+                        <div class="service-icon text-center mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Pengembangan Web</h4>
+                        <p class="text-gray-700">Membangun situs web yang fungsional dan dinamis, dari konsep hingga peluncuran. Saya fokus pada kode bersih, performa optimal, dan pengalaman pengguna yang mulus.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card rounded-lg shadow-md p-6">
+                        <div class="service-icon text-center mb-4">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Desain Responsif</h4>
+                        <p class="text-gray-700">Memastikan situs web Anda terlihat sempurna di setiap perangkat. Desain adaptif saya menjamin konsistensi visual dan fungsionalitas, baik di desktop maupun mobile.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card rounded-lg shadow-md p-6">
+                        <div class="service-icon text-center mb-4">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">Desain UI/UX</h4>
+                        <p class="text-gray-700">Menciptakan antarmuka yang intuitif dan pengalaman pengguna yang memikat. Saya merancang solusi yang tidak hanya indah, tetapi juga mudah digunakan dan efektif dalam mencapai tujuan bisnis Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section">
+        <div class="container">
+            <h2 class="section-title text-center">Karya Saya</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item rounded-lg shadow-lg">
+                        <!-- Replace 'img/apotek-berkat.png' with the path to your project image -->
+                        <img src="assets/image/mobil.png" alt="Portfolio WebMobil" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay rounded-lg">
+                            <h4 class="portfolio-title">Rancangan website mobil </h4>
+                            <p>Prototype desain kendaraan roda empat</p>
+                            <a href="#" class="btn btn-primary btn-sm rounded-md">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item rounded-lg shadow-lg">
+                        <!-- Replace 'img/universitas-politeknik.png' with the path to your project image -->
+                        <img src="assets/image/apotek berkat.png" alt="Portfolio Apotek Berkat" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay rounded-lg">
+                            <h4 class="portfolio-title">Proyek Figma: Apotek Berkat</h4>
+                            <p>Membuat prototype aplikasi berbasis online, dengan menyediakan layanan terbaik dengan dokter 
+                                pilihan</p>
+                            <a href="#" class="btn btn-primary btn-sm rounded-md">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item rounded-lg shadow-lg">
+                        <!-- Replace 'img/banner-topup.jpg' with the path to your project image -->
+                        <img src="assets/image/siakad.png" alt="Gambar Portofolio Banner Top Up" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay rounded-lg">
+                            <h4 class="portfolio-title">Portfolio Politeknik Teknologi Nusantara</h4>
+                            <p>Prototipe UI/UX Universitas Politeknik Teknologi Nusantara Aplikasi Universitas yang fleksibel untuk Mahasiswa Baru, Mahasiswa Aktif, Admin dan Dosen berbasis Online</p>
+                            <a href="#" class="btn btn-primary btn-sm rounded-md">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item rounded-lg shadow-lg">
+                        <!-- Replace 'img/lembar-fakta-jumbo.jpg' with the path to your project image -->
+                        <img src="assets/image/job desain catering.png" alt="Job Catering" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay rounded-lg">
+                            <h4 class="portfolio-title">Job Desain Catering</h4>
+                            <p>Pembuatan listmenu garda catering.</p>
+                            <a href="#" class="btn btn-primary btn-sm rounded-md">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item rounded-lg shadow-lg">
+                        <!-- Replace 'img/poster-bahaya-ai.jpg' with the path to your project image -->
+                        <img src="assets/image/Untitled-2.png" alt="Gambar Portofolio Poster Bahaya AI" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay rounded-lg">
+                            <h4 class="portfolio-title">Poster Deadpool & wolverine</h4>
+                            <p>Ini adalah gambar poster bertemakan superhero yang di buat di photoshop</p>
+                            <a href="#" class="btn btn-primary btn-sm rounded-md">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="portfolio-item rounded-lg shadow-lg">
+                        <!-- Replace 'img/poster-save-earth.png' with the path to your project image -->
+                        <img src="assets/image/job portfolio.png" alt="Portofolio" class="img-fluid portfolio-img">
+                        <div class="portfolio-overlay rounded-lg">
+                            <h4 class="portfolio-title">Job pembuatan portofolio</h4>
+                            <p>Pembuatan portofolio mahasiswa mercu buana di canva.</p>
+                            <a href="#" class="btn btn-primary btn-sm rounded-md">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title text-center">Hubungi Saya</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <div class="contact-icon rounded-full bg-blue-100">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Alamat</h5>
+                            <p>Jakarta Utara</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon rounded-full bg-blue-100">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h5>Telepon</h5>
+                            <p>085769286034</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-icon rounded-full bg-blue-100">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h5>Email</h5>
+                            <p>nanditogianza@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="social-icons mt-4">
+                        <a href="#" class="facebook rounded-full bg-gray-300 hover:bg-blue-600"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="twitter rounded-full bg-gray-300 hover:bg-blue-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="linkedin rounded-full bg-gray-300 hover:bg-blue-700"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="instagram rounded-full bg-gray-300 hover:bg-pink-500"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control rounded-md" placeholder="Nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control rounded-md" placeholder="Email Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control rounded-md" placeholder="Subjek" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control rounded-md" rows="4" placeholder="Pesan" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary rounded-md">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2023 Portofolio Dito. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Tombol Kembali ke Atas
+        const backToTopBtn = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        // Gulir Halus
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
