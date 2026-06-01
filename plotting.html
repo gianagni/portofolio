@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritma Plotting Jadwal - Detail Project | Nandito Gianza</title>
+    
+    <link rel="icon" type="image/png" href="images/icons/logo.png">
+    
+    <link rel="stylesheet" href="neo-styles.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .project-detail-header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            position: relative;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: var(--pink); /* Warna Pink untuk Complex Algorithm */
+            color: var(--text);
+            border: 3px solid var(--border);
+            padding: 8px 20px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0 var(--border);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banner-wrapper {
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            border: 4px solid var(--border);
+            box-shadow: 12px 12px 0 var(--border);
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-wrapper img {
+            width: 100%;
+            display: block;
+            border-bottom: 4px solid var(--border);
+            background: var(--yellow); /* Fallback color */
+        }
+
+        .banner-bar {
+            background: var(--cyan);
+            padding: 10px 20px;
+            display: flex;
+            gap: 10px;
+            border-bottom: 4px solid var(--border);
+        }
+
+        .circle {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 3px solid var(--border);
+            background: var(--white);
+        }
+
+        .circle:nth-child(1) { background: #ff5f56; } /* Mac OS Close */
+        .circle:nth-child(2) { background: #ffbd2e; } /* Mac OS Min */
+        .circle:nth-child(3) { background: #27c93f; } /* Mac OS Max */
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .analysis-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .analysis-title i {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .code-card {
+            padding: 0;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .code-header {
+            background: var(--pink); /* Warna pink untuk box code */
+            padding: 1rem 1.5rem;
+            border-bottom: 4px solid var(--border);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .code-body {
+            background: var(--white);
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .code-body pre {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--text);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .logic-step {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+        }
+
+        .logic-step::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 900;
+        }
+
+        @media (max-width: 768px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div class="loader-overlay">
+        <div class="loader-shapes">
+            <div class="loader-shape-svg loader-shape-1">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <path d="M35 40 L20 50 L35 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M65 40 L80 50 L65 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="55" y1="35" x2="45" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="loader-shape-svg loader-shape-2">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <path d="M25 35 L40 50 L25 65" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="50" y1="65" x2="75" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="loader-wrapper">
+            <div class="loader-letter">N</div>
+            <div class="loader-letter">G</div>
+        </div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">NG</a>
+                <div class="nav-right">
+                    <a href="projects.html" class="nav-cta"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects</a>
+                    <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail-header fade-in">
+            <div class="category-badge">Complex Algorithm</div>
+            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Algoritma Penjadwalan.</h1>
+            
+            <div class="tech-tags" style="justify-content: center; margin-bottom: 2rem;">
+                <span class="tag" style="background: var(--yellow);"><i class="fab fa-php"></i> PHP Native</span>
+                <span class="tag" style="background: var(--cyan);"><i class="fas fa-calendar-times"></i> Conflict Detection</span>
+                <span class="tag" style="background: var(--white);"><i class="fas fa-balance-scale"></i> SKS Load Balancing</span>
+                <span class="tag" style="background: var(--accent);"><i class="fas fa-university"></i> Minara College Case</span>
+            </div>
+        </section>
+
+        <div class="banner-wrapper fade-in">
+            <div class="banner-bar">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <img src="images/projects/plotting.jpg" alt="Sistem Penjadwalan Minara College">
+        </div>
+
+        <div class="container" style="padding-top: 0; max-width: 1100px;">
+            
+            <div class="analysis-grid">
+                <div class="card fade-in">
+                    <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
+                    <p class="text">
+                        <strong>Studi Kasus: Minara College.</strong> Manajemen jadwal perkuliahan secara manual sering kali mengakibatkan bentrok jadwal (seperti Dosen yang harus mengajar di dua tempat, atau Ruangan yang terpakai ganda) dan ketimpangan beban SKS antar dosen.
+                    </p>
+                    <p class="text">
+                        Dibutuhkan sebuah sistem yang dapat memvalidasi ribuan kemungkinan kombinasi antara <strong>Dosen</strong>, <strong>Mata Kuliah</strong>, <strong>Ruang</strong>, dan <strong>Waktu</strong> secara <em>real-time</em> sesaat sebelum data disimpan ke <em>database</em>.
+                    </p>
+                </div>
+
+                <div class="card highlight-box fade-in" style="background: var(--yellow);">
+                    <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
+                    <p class="text">
+                        Saya membangun sistem ini berbasis <span class="highlight highlight-cyan">PHP Native</span> murni untuk mengejar performa maksimal dalam <em>query</em> logika yang berat tanpa terhambat beban dari *framework*.
+                    </p>
+                    <ul class="job-list" style="margin-top: 1rem;">
+                        <li><strong>Double-Constraint Check:</strong> Algoritma pengecekan ganda secara paralel untuk tabrakan Ruang & Waktu serta tabrakan Dosen & Waktu.</li>
+                        <li><strong>SKS Monitoring:</strong> Kalkulasi otomatis di tabel untuk mencegah <em>overload</em> beban mengajar SKS per dosen.</li>
+                        <li><strong>Print Friendly:</strong> Fitur cetak laporan PDF langsung untuk jadwal kelas.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="analysis-grid" style="margin-bottom: 2rem;">
+                <div class="card fade-in" style="grid-column: 1 / -1;">
+                    <h3 class="analysis-title"><i class="fas fa-sitemap" style="color: var(--cyan);"></i> Relational Logic Architecture</h3>
+                    <p class="text">
+                        Kekuatan utama sistem ini ada pada relasi tabel <code>ploting_mengajar</code> yang bertindak sebagai pusat (<em>Bridge Table</em>) untuk merajut entitas lain di dalam <em>database</em>.
+                    </p>
+                    
+                    <ul class="job-list" style="margin: 1.5rem 0 2rem 0;">
+                        <li><code>pengampu</code>: Menghubungkan Dosen -> Mata Kuliah -> Kelas -> Tahun Akademik.</li>
+                        <li><code>jadwal</code>: Menyimpan ketersediaan slot Hari, Jam, & ID Ruang.</li>
+                        <li><code>ploting_mengajar</code>: Menyatukan ID Pengampu dan ID Jadwal secara definitif dan tervalidasi.</li>
+                    </ul>
+                    
+                    <div style="background: var(--accent); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border);">
+                        <h4 style="font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;"><i class="fas fa-random" style="margin-right: 8px;"></i> Logic Validasi Bentrok:</h4>
+                        <div class="logic-step">IF (Ruang = 'Lab Kom 1' AND Waktu = '08:00-10:00') EXISTS</div>
+                        <div class="logic-step">OR</div>
+                        <div class="logic-step">IF (Dosen = 'Nasril' AND Waktu = '08:00-10:00') EXISTS</div>
+                        <div class="logic-step" style="color: var(--text); background: var(--pink); border: 2px solid var(--border); padding: 0.2rem 0.5rem; display: inline-block; margin-bottom: 10px;">=> REJECT INPUT (BENTROK)</div>
+                        <div class="logic-step">ELSE</div>
+                        <div class="logic-step" style="color: var(--bg); background: var(--white); border: 2px solid var(--border); padding: 0.2rem 0.5rem; display: inline-block;">=> SAVE DATA to ploting_mengajar</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card code-card fade-in">
+                <div class="code-header">
+                    <i class="fas fa-code" style="font-size: 1.5rem;"></i> ConflictCheck.php (The Anti-Conflict Algorithm)
+                </div>
+                <div class="code-body">
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Berikut adalah potongan kode PHP Native yang saya gunakan untuk memvalidasi irisan waktu (<span class="highlight highlight-pink">Time Overlap</span>) agar tidak ada jadwal yang bertabrakan baik secara ruangan maupun jadwal dosen.</p>
+<pre><code>function cekBentrok($hari, $jam_mulai, $jam_selesai, $id_ruang, $id_dosen) {
+    global $koneksi;
+
+    // 1. Cek Bentrok Ruangan (Apakah ruangan sedang dipakai orang lain?)
+    $queryRuang = "SELECT * FROM jadwal 
+                   JOIN ploting_mengajar ON jadwal.id_jadwal = ploting_mengajar.id_jadwal
+                   WHERE hari = '$hari' 
+                   AND id_ruang = '$id_ruang'
+                   AND (
+                       ('$jam_mulai' >= jam_mulai AND '$jam_mulai' < jam_selesai) OR
+                       ('$jam_selesai' > jam_mulai AND '$jam_selesai' <= jam_selesai)
+                   )";
+
+    $cek1 = mysqli_num_rows(mysqli_query($koneksi, $queryRuang));
+    
+    // Jika data ditemukan (cek1 > 0), berarti ada irisan waktu
+    if ($cek1 > 0) return "Error: Ruangan Sedang Terpakai pada Jam Tersebut!";
+    
+    // 2. Cek Bentrok Dosen (Logic query serupa diterapkan untuk mengecek tabel pengampu)
+    // ...
+    
+    return "OK"; // Lolos validasi, data aman untuk di-insert ke database
+}</code></pre>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <div class="footer-compact">
+                <div class="footer-bottom-compact" style="justify-content: center; padding-top: 0; border-top: none;">
+                    <span style="font-size: 0.95rem;">© 2026 Nandito Gianza. System Online.</span>
+                </div>
+            </div>
+        </footer>
+        
+    </div> 
+
+    <script>
+        // Start di atas saat direfresh
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Loading Screen Logic
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-overlay');
+            if(loader) {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 1200); 
+            }
+        });
+
+        // Dark Mode / Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        if(icon) updateIcon(currentTheme);
+
+        if(themeToggle){
+            themeToggle.addEventListener('click', () => {
+                const theme = body.getAttribute('data-theme');
+                const newTheme = theme === 'light' ? 'dark' : 'light';
+
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+        }
+
+        function updateIcon(theme) {
+            if(!icon) return;
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Efek fade-in pas di-scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

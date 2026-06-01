@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Nandito Gianza</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="neo-styles.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .projects-header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            position: relative;
+        }
+
+        .projects-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem 0 5rem 0;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--white);
+            border: var(--border-width) solid var(--border);
+            box-shadow: 8px 8px 0 var(--border);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Efek hover brutalisme: ditekan ke dalam */
+        .project-card:hover {
+            transform: translate(6px, 6px);
+            box-shadow: 2px 2px 0 var(--border);
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .project-desc {
+            flex-grow: 1;
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Menyesuaikan tombol agar persis dengan Explore All Projects */
+        .btn-view {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: var(--cyan);
+            color: var(--text);
+            text-decoration: none;
+            padding: 1rem;
+            border: var(--border-width) solid var(--border);
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 4px 4px 0 var(--border);
+            transition: all 0.2s ease;
+            margin-top: auto; 
+        }
+
+        .btn-view:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 var(--border);
+            background: var(--yellow);
+        }
+
+        body[data-theme="dark"] .project-card {
+            background: var(--white);
+        }
+        
+        body[data-theme="dark"] .btn-view {
+            background: var(--primary);
+            color: var(--bg);
+        }
+
+        body[data-theme="dark"] .btn-view:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div class="loader-overlay">
+        <div class="loader-shapes">
+            <div class="loader-shape-svg loader-shape-1">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <path d="M35 40 L20 50 L35 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M65 40 L80 50 L65 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="55" y1="35" x2="45" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="loader-shape-svg loader-shape-2">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <path d="M25 35 L40 50 L25 65" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="50" y1="65" x2="75" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="loader-wrapper">
+            <div class="loader-letter">N</div>
+            <div class="loader-letter">G</div>
+        </div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">NG</a>
+                <div class="nav-right">
+                    <a href="index.html" class="nav-cta"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Home</a>
+                    <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <section class="projects-header fade-in">
+            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">ARCHIVE & WORKS</h1>
+            <p style="font-family: 'Space Mono', monospace; font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Kumpulan hasil eksplorasi sistem dan web development yang pernah aku kerjakan.</p>
+        </section>
+
+        <div class="container" style="padding-top: 0;">
+            <div class="projects-grid-modern">
+                
+                <div class="project-card fade-in">
+                    <h3>Gianagni Lofi Bot</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--yellow);"><i class="fab fa-node-js"></i> Node.js</span>
+                        <span class="tag" style="background: var(--white);"><i class="fab fa-discord"></i> Discord.js</span>
+                    </div>
+                    <p class="project-desc">Discord bot pemutar musik Lo-Fi 24/7 dengan arsitektur stream audio khusus untuk mencegah memory leak pada server.</p>
+                    <a href="discord-bot.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>NG Market</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-store"></i> Catalog</span>
+                        <span class="tag" style="background: var(--yellow);"><i class="fas fa-sitemap"></i> UI Flow</span>
+                    </div>
+                    <p class="project-desc">Website katalog layanan digital dengan navigasi produk, section domain/VPS, cara order, testimoni, dan alur CTA yang diarahkan agar pengguna cepat memahami layanan.</p>
+                    <a href="https://market.gianagni.my.id/" target="_blank" rel="noopener noreferrer" class="btn-view">Visit Website <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>Sistem Kas UMKM</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--accent);"><i class="fas fa-fire"></i> CI4</span>
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-bolt"></i> AJAX</span>
+                    </div>
+                    <p class="project-desc">Aplikasi web pencatatan transaksi keuangan end-to-end dengan implementasi database ACID untuk akurasi data.</p>
+                    <a href="kas-manajemen.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>Fana Market</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-store"></i> Marketplace</span>
+                        <span class="tag" style="background: var(--white);"><i class="fab fa-php"></i> PHP</span>
+                    </div>
+                    <p class="project-desc">Platform jual-beli akun digital dengan penanganan logika pengurangan stok otomatis dan gateway pembayaran.</p>
+                    <a href="fanamarket.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>Plotting Akademik</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--pink);"><i class="fab fa-php"></i> Native</span>
+                        <span class="tag" style="background: var(--white);"><i class="fas fa-cogs"></i> Logic</span>
+                    </div>
+                    <p class="project-desc">Sistem manajemen jadwal dengan validasi multi-user dan pengecekan otomatis untuk dosen atau ruang yang bentrok.</p>
+                    <a href="plotting.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>BrewBuddy F&B</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--yellow);"><i class="fas fa-coffee"></i> Web App</span>
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-palette"></i> UI/UX</span>
+                    </div>
+                    <p class="project-desc">Sistem pemesanan coffee shop yang berfokus pada pengalaman pengguna (UI) dan alur logika kasir yang efisien.</p>
+                    <a href="brewbuddy.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>Portal Berita Gamified</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--accent);"><i class="fas fa-gamepad"></i> Gamification</span>
+                        <span class="tag" style="background: var(--pink);"><i class="fas fa-database"></i> MySQL</span>
+                    </div>
+                    <p class="project-desc">Portal berita interaktif dimana user mendapatkan poin setiap kali selesai membaca artikel untuk meningkatkan engagement.</p>
+                    <a href="portal-berita.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <h3>Freelance OS</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-sitemap"></i> System</span>
+                        <span class="tag" style="background: var(--yellow);"><i class="fas fa-calculator"></i> Logic</span>
+                    </div>
+                    <p class="project-desc">Sistem internal untuk manajemen project freelance, menghitung progress pembayaran, dan kalkulasi tagihan klien.</p>
+                    <a href="freelance.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-compact">
+                <div class="footer-bottom-compact" style="justify-content: center; padding-top: 0; border-top: none;">
+                    <span style="font-size: 0.95rem;">© 2026 Nandito Gianza. All Systems Operational.</span>
+                </div>
+            </div>
+        </footer>
+        
+    </div> 
+
+    <script>
+        // Start di atas saat direfresh
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Loading Screen Logic
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-overlay');
+            if(loader) {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 1200); 
+            }
+        });
+
+        // Dark Mode / Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        if(icon) updateIcon(currentTheme);
+
+        if(themeToggle){
+            themeToggle.addEventListener('click', () => {
+                const theme = body.getAttribute('data-theme');
+                const newTheme = theme === 'light' ? 'dark' : 'light';
+
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+        }
+
+        function updateIcon(theme) {
+            if(!icon) return;
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Efek fade-in pas di-scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

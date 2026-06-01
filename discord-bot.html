@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianagni Lofi Bot - Detail Project | Nandito Gianza</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <link rel="stylesheet" href="neo-styles.css"> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .project-detail-header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            position: relative;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: var(--pink);
+            color: var(--text);
+            border: 3px solid var(--border);
+            padding: 8px 20px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0 var(--border);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banner-wrapper {
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            border: 4px solid var(--border);
+            box-shadow: 12px 12px 0 var(--border);
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-wrapper img {
+            width: 100%;
+            display: block;
+            border-bottom: 4px solid var(--border);
+            background: var(--accent); /* Fallback color */
+        }
+
+        .banner-bar {
+            background: var(--cyan);
+            padding: 10px 20px;
+            display: flex;
+            gap: 10px;
+            border-bottom: 4px solid var(--border);
+        }
+
+        .circle {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 3px solid var(--border);
+            background: var(--white);
+        }
+
+        .circle:nth-child(1) { background: #ff5f56; } /* Mac OS Close */
+        .circle:nth-child(2) { background: #ffbd2e; } /* Mac OS Min */
+        .circle:nth-child(3) { background: #27c93f; } /* Mac OS Max */
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .analysis-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .analysis-title i {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .code-card {
+            padding: 0;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .code-header {
+            background: var(--cyan);
+            padding: 1rem 1.5rem;
+            border-bottom: 4px solid var(--border);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .code-body {
+            background: var(--white);
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .code-body pre {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--text);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .logic-step {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+        }
+
+        .logic-step::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--pink);
+            font-weight: 900;
+        }
+
+        @media (max-width: 768px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div class="loader-overlay">
+        <div class="loader-shapes">
+            <div class="loader-shape-svg loader-shape-1">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <path d="M35 40 L20 50 L35 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M65 40 L80 50 L65 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="55" y1="35" x2="45" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="loader-shape-svg loader-shape-2">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <path d="M25 35 L40 50 L25 65" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="50" y1="65" x2="75" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="loader-wrapper">
+            <div class="loader-letter">N</div>
+            <div class="loader-letter">G</div>
+        </div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">NG</a>
+                <div class="nav-right">
+                    <a href="projects.html" class="nav-cta"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects</a>
+                    <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail-header fade-in">
+            <div class="category-badge">System Integration & Bot</div>
+            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Gianagni Audio Bot.</h1>
+            
+            <div class="tech-tags" style="justify-content: center; margin-bottom: 2rem;">
+                <span class="tag" style="background: var(--yellow);"><i class="fab fa-node-js"></i> Node.js</span>
+                <span class="tag" style="background: var(--cyan);"><i class="fab fa-discord"></i> Discord.js v14</span>
+                <span class="tag" style="background: var(--white);"><i class="fas fa-music"></i> FFmpeg Media Stream</span>
+                <span class="tag" style="background: var(--accent);"><i class="fas fa-shield-alt"></i> End-to-End Encryption</span>
+            </div>
+        </section>
+
+        <div class="banner-wrapper fade-in">
+            <div class="banner-bar">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+            <img src="images/projects/discord-bot.png" alt="Gianagni Bot Profile">
+        </div>
+
+        <div class="container" style="padding-top: 0; max-width: 1100px;">
+            
+            <div class="analysis-grid">
+                <div class="card fade-in">
+                    <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
+                    <p class="text">
+                        Membuat bot musik Discord awalnya sederhana, hingga pembaruan keamanan terbaru Discord menerapkan <span class="highlight highlight-yellow">DAVE Protocol (End-to-End Encryption)</span> secara paksa pada Voice Channel. Update ini membuat 90% bot audio open-source terblokir dan menjadi "bisu".
+                    </p>
+                    <p class="text">
+                        Tantangannya adalah merekayasa ulang lapisan jaringan bot agar dapat menegosiasikan kunci enkripsi baru dengan server Discord, sekaligus mengkonversi stream radio Zeno FM (MP3) secara real-time menjadi format <code>Opus</code> yang aman.
+                    </p>
+                </div>
+
+                <div class="card highlight-box fade-in">
+                    <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
+                    <p class="text">
+                        Saya merombak arsitektur backend bot menggunakan <strong>Node.js</strong> dan ekosistem library <strong>@discordjs/voice</strong> terbaru.
+                    </p>
+                    <ul class="job-list" style="margin-top: 1rem;">
+                        <li><strong>DAVE Protocol Bypass:</strong> Menginjeksi library <code>@snazzah/davey</code> untuk melewati pemblokiran Voice Server.</li>
+                        <li><strong>Audio Transcoding:</strong> Menggunakan <code>ffmpeg-static</code> untuk konversi data media <em>on-the-fly</em>.</li>
+                        <li><strong>Memory Optimization:</strong> Mem-bypass caching metadata audio untuk mencegah kebocoran memori pada server saat bot berjalan 24/7.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="analysis-grid" style="margin-bottom: 2rem;">
+                <div class="card fade-in" style="grid-column: 1 / -1;">
+                    <h3 class="analysis-title"><i class="fas fa-shield-virus" style="color: var(--cyan);"></i> Security Bypass Architecture</h3>
+                    <p class="text">
+                        Untuk menembus pemblokiran audio dari server Discord, bot harus melakukan <em>handshake</em> kriptografi yang valid sebelum diizinkan mengirim paket suara melalui protokol UDP.
+                    </p>
+                    <p class="text">
+                        <strong>Komponen Keamanan (Dependencies):</strong><br>
+                        1. <code>@snazzah/davey</code>: Menginisiasi dan menjaga sesi DAVE Protocol.<br>
+                        2. <code>tweetnacl</code>: Library kriptografi untuk memvalidasi <em>signature</em> kunci rahasia secara lokal.<br>
+                        3. <code>libsodium-wrappers</code>: Melakukan enkripsi End-to-End (E2EE) pada setiap pecahan paket audio sebelum dikirim.
+                    </p>
+                    
+                    <div style="background: var(--yellow); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border); margin-top: 2rem;">
+                        <h4 style="font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;">DAVE Protocol Flow:</h4>
+                        <div class="logic-step">Bot Request Join Voice Channel</div>
+                        <div class="logic-step">Discord Server: <span style="background: var(--white); border: 2px solid var(--border); padding: 0 5px; color: var(--pink);">"Require E2EE Key!"</span></div>
+                        <div class="logic-step"><code>snazzah/davey</code> generates Session Key</div>
+                        <div class="logic-step"><code>tweetnacl</code> signs the packet</div>
+                        <div class="logic-step">Discord Server: <span style="background: var(--white); border: 2px solid var(--border); padding: 0 5px; color: var(--cyan);">"Handshake Accepted"</span></div>
+                        <div class="logic-step">FFmpeg opens OPUS Stream Pipeline.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card code-card fade-in">
+                <div class="code-header">
+                    <i class="fab fa-node-js" style="font-size: 1.5rem;"></i> index.js (Backend Logic: Audio Resource Injection)
+                </div>
+                <div class="code-body">
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Berikut adalah core logic untuk pemutaran stream radio. Penggunaan <span class="highlight highlight-pink">StreamType.Arbitrary</span> sangat krusial agar sistem FFmpeg tidak mencoba mengunduh seluruh stasiun radio (infinite loop), melainkan langsung meneruskan paket datanya secara mentah.</p>
+<pre><code>const connection = joinVoiceChannel({
+    channelId: voiceChannel.id,
+    guildId: interaction.guild.id,
+    adapterCreator: interaction.guild.voiceAdapterCreator,
+});
+
+const player = createAudioPlayer();
+
+// StreamType.Arbitrary: Memaksa FFmpeg membaca stream radio internet (Zeno FM)
+// tanpa mendownload metadata-nya terlebih dahulu (Mencegah RAM overload).
+const resource = createAudioResource('http://stream.zeno.fm/f3wvbbqmdg8uv', {
+    inputType: StreamType.Arbitrary,
+});
+
+player.play(resource);
+connection.subscribe(player);
+
+// Event Listener Debugging State
+player.on(AudioPlayerStatus.Playing, () => {
+    console.log('▶️ Stream DAVE Protocol Active: Musik diputar di Discord!');
+});</code></pre>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <div class="footer-compact">
+                <div class="footer-bottom-compact" style="justify-content: center; padding-top: 0; border-top: none;">
+                    <span style="font-size: 0.95rem;">© 2026 Nandito Gianza. System Online.</span>
+                </div>
+            </div>
+        </footer>
+        
+    </div> 
+
+    <script>
+        // Start di atas saat direfresh
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Loading Screen Logic
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-overlay');
+            if(loader) {
+                setTimeout(() => {
+                    loader.classList.add('hidden');
+                }, 1200); 
+            }
+        });
+
+        // Dark Mode / Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        body.setAttribute('data-theme', currentTheme);
+        if(icon) updateIcon(currentTheme);
+
+        if(themeToggle){
+            themeToggle.addEventListener('click', () => {
+                const theme = body.getAttribute('data-theme');
+                const newTheme = theme === 'light' ? 'dark' : 'light';
+
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateIcon(newTheme);
+            });
+        }
+
+        function updateIcon(theme) {
+            if(!icon) return;
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Efek fade-in pas di-scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+  
+  <ns0:rect width="64" height="64" fill="#ffd93d" />
+
+  
+  <ns0:rect x="8" y="16" width="20" height="24" fill="#66d9ef" stroke="#000" stroke-width="2" />
+
+  
+  <ns0:rect x="36" y="16" width="20" height="24" fill="#ff6b9d" stroke="#000" stroke-width="2" />
+
+  
+  <ns0:text x="18" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#000">N</ns0:text>
+
+  
+  <ns0:text x="46" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#000">G</ns0:text>
+
+  
+  <ns0:rect x="11" y="19" width="20" height="24" fill="none" stroke="#000" stroke-width="2" opacity="0.3" />
+  <ns0:rect x="39" y="19" width="20" height="24" fill="none" stroke="#000" stroke-width="2" opacity="0.3" />
+</ns0:svg>
