@@ -10,6 +10,8 @@
 <a href="https://github.com/gianagni"><img src="https://img.shields.io/badge/GITHUB-66D9EF?style=for-the-badge&logo=github&logoColor=white&labelColor=111111&color=66D9EF" alt="GitHub profile" /></a>
 <a href="https://www.linkedin.com/in/nanditogianza"><img src="https://img.shields.io/badge/LINKEDIN-A8E6CF?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=111111&color=A8E6CF" alt="LinkedIn profile" /></a>
 
+<a href="https://github.com/gianagni/portofolio/actions/workflows/portfolio-ci.yml"><img src="https://github.com/gianagni/portofolio/actions/workflows/portfolio-ci.yml/badge.svg" alt="Portfolio CI" /></a>
+
 <p><strong>Personal portfolio • Developer experiments • Systems thinking</strong></p>
 
 <p>A home for the things I build, the problems behind them, and the decisions that turn an idea into a working system.</p>
@@ -107,6 +109,8 @@ portofolio/
 ```
 
 Individual project detail pages live alongside `index.html` in the repository root.
+
+Found a bug or want to suggest an improvement? Read [CONTRIBUTING.md](CONTRIBUTING.md). For a possible vulnerability, please use the private reporting instructions in [SECURITY.md](SECURITY.md).
 
 ## `06 / LET'S CONNECT`
 
