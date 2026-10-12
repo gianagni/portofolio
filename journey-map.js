@@ -79,15 +79,15 @@
     try {
       map = L.map(container, {
         center: jakarta,
-        zoom: 11,
+        zoom: 5,
         minZoom: 4,
-        maxZoom: 17,
+        maxZoom: 7,
         scrollWheelZoom: false,
         zoomControl: false,
         attributionControl: false
       });
       L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 17,
+        maxZoom: 7,
         attribution: '© OpenStreetMap contributors'
       }).addTo(map);
       L.control.zoom({ position: 'topright' }).addTo(map);
