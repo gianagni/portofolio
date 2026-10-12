@@ -424,7 +424,7 @@ class TerminalResume {
 // ==========================================
 
   printWelcomeMessage(outputElement = this.output) {
-    // ASCII Art untuk DITO
+    // ASCII art for DITO
     const asciiArt = `██████╗  ██╗ ████████╗ ██████╗ 
 ██╔══██╗ ██║ ╚══██╔══╝██╔═══██╗
 ██║  ██║ ██║    ██║   ██║   ██║
@@ -442,16 +442,16 @@ class TerminalResume {
         "#888888"
       ) +
       this.wrapWithColor(
-        "           System Analyst\n",
+        "         Full-Stack Developer\n",
         "#666666"
       ) +
       this.wrapWithColor(divider + "\n\n", "#555555") +
-      this.wrapWithColor("Ketik ", "#666666") +
+      this.wrapWithColor("Type ", "#666666") +
       this.wrapWithColor("'help'", "#a8e6cf") +
-      this.wrapWithColor(" untuk melihat daftar perintah\n", "#666666") +
-      this.wrapWithColor("Tekan ", "#666666") +
+      this.wrapWithColor(" to see the list of commands\n", "#666666") +
+      this.wrapWithColor("Press ", "#666666") +
       this.wrapWithColor("'tab'", "#a8e6cf") +
-      this.wrapWithColor(" untuk auto-complete perintah", "#666666");
+      this.wrapWithColor(" to auto-complete a command", "#666666");
 
     const helpDiv = document.createElement("div");
     helpDiv.innerHTML = welcome;
@@ -460,50 +460,50 @@ class TerminalResume {
   }
 
   showHelp(outputElement = this.output) {
-    const title = this.wrapWithColor("🚀 Perintah yang Tersedia\n\n", "#ffd93d");
+    const title = this.wrapWithColor("Available Commands\n\n", "#ffd93d");
 
     const mainCommands =
-      this.wrapWithColor("Perintah Utama:\n", "#66d9ef") +
+      this.wrapWithColor("Main Commands:\n", "#66d9ef") +
       this.wrapWithColor("• help", "#a8e6cf") +
       "       " +
-      this.wrapWithColor("Tampilkan pesan bantuan ini\n", "#ffffff") +
+      this.wrapWithColor("Show this help message\n", "#ffffff") +
       this.wrapWithColor("• about", "#a8e6cf") +
       "      " +
       this.wrapWithColor("Tampilkan ringkasan profilku\n", "#ffffff") +
       this.wrapWithColor("• skills", "#a8e6cf") +
       "     " +
-      this.wrapWithColor("Lihat keahlian teknisku\n", "#ffffff") +
+      this.wrapWithColor("Show my technology stack\n", "#ffffff") +
       this.wrapWithColor("• experience", "#a8e6cf") +
       " " +
       this.wrapWithColor("Tampilkan riwayat pengalaman/project\n", "#ffffff") +
       this.wrapWithColor("• education", "#a8e6cf") +
       "  " +
-      this.wrapWithColor("Lihat latar belakang pendidikan\n", "#ffffff") +
+      this.wrapWithColor("Show my education\n", "#ffffff") +
       this.wrapWithColor("• contact", "#a8e6cf") +
       "    " +
       this.wrapWithColor("Dapatkan informasi kontakku\n", "#ffffff") +
       this.wrapWithColor("• clear", "#a8e6cf") +
       "      " +
-      this.wrapWithColor("Bersihkan layar terminal\n", "#ffffff");
+      this.wrapWithColor("Clear the terminal\n", "#ffffff");
 
     const utilityCommands =
       "\n" +
-      this.wrapWithColor("Perintah Tambahan:\n", "#66d9ef") +
+      this.wrapWithColor("Extra Commands:\n", "#66d9ef") +
       this.wrapWithColor("• projects", "#a8e6cf") +
       "   " +
-      this.wrapWithColor("Lihat showcase project (UI Modal)\n", "#ffffff") +
+      this.wrapWithColor("Open the project showcase (modal)\n", "#ffffff") +
       this.wrapWithColor("• skills-visual", "#a8e6cf") +
       "" +
-      this.wrapWithColor("Lihat visualisasi skill (UI Modal)\n", "#ffffff") +
+      this.wrapWithColor("Open the skill visualization (modal)\n", "#ffffff") +
       this.wrapWithColor("• game", "#a8e6cf") +
       "      " +
       this.wrapWithColor("Mainkan mini-game Snake\n", "#ffffff") +
       this.wrapWithColor("• matrix", "#a8e6cf") +
       "    " +
-      this.wrapWithColor("Mulai efek digital rain ala Matrix\n", "#ffffff") +
+      this.wrapWithColor("Start the Matrix-style digital rain\n", "#ffffff") +
       this.wrapWithColor("• calc", "#a8e6cf") +
       "      " +
-      this.wrapWithColor("Kalkulator matematika (misal: calc 5+5)\n", "#ffffff");
+      this.wrapWithColor("Calculator (e.g. calc 5+5)\n", "#ffffff");
 
     const shortcuts =
       "\n" +
@@ -511,15 +511,15 @@ class TerminalResume {
       this.wrapWithColor("• ", "#666666") +
       this.wrapWithColor("↑/↓", "#666666") +
       "         " +
-      this.wrapWithColor("Navigasi riwayat perintah\n", "#444444") +
+      this.wrapWithColor("Browse command history\n", "#444444") +
       this.wrapWithColor("• ", "#666666") +
       this.wrapWithColor("Tab", "#666666") +
       "         " +
-      this.wrapWithColor("Auto-complete perintah\n", "#444444") +
+      this.wrapWithColor("Auto-complete a command\n", "#444444") +
       this.wrapWithColor("• ", "#666666") +
       this.wrapWithColor("Ctrl+L", "#666666") +
       "      " +
-      this.wrapWithColor("Bersihkan layar\n", "#444444");
+      this.wrapWithColor("Clear the screen\n", "#444444");
 
     const help = title + mainCommands + utilityCommands + shortcuts;
 
@@ -530,24 +530,19 @@ class TerminalResume {
   }
 
   showAbout(outputElement = this.output) {
-    const about = `<span style="color: #ffd93d; font-weight: bold;">✨ About Me</span>
+    const about = `<span style="color: #ffd93d; font-weight: bold;">About Me</span>
 
-${this.wrapWithColor("┌─────────────────────────────────────────────────────────┐", "#ffd93d")}
-${this.wrapWithColor("│", "#ffd93d")} ${this.wrapWithColor("Halo! Aku Dito, seorang System Analyst", "#ffffff")}
-${this.wrapWithColor("│", "#ffd93d")} ${this.wrapWithColor("berbasis di Jakarta, Indonesia.", "#ffffff")}
-${this.wrapWithColor("└─────────────────────────────────────────────────────────┘", "#ffd93d")}
+${this.wrapWithColor("Hi! I'm Dito (Nandito Gianza Agni), a Full-Stack Developer based in Jakarta.", "#ffffff")}
+${this.wrapWithColor("Informatics Management student at Politeknik LP3I Jakarta.", "#ffffff")}
 
-${this.wrapWithColor("⚡ Focus & Expertise", "#ffd93d")}
-${this.wrapWithColor("   Merancang alur sistem, struktur data, dan kebutuhan teknis", "#ffffff")}
-${this.wrapWithColor("   agar aplikasi web lebih rapi, aman, dan mudah dikembangkan.", "#ffffff")}
+${this.wrapWithColor("Building products from problem to system", "#ffd93d")}
+${this.wrapWithColor("   problem → user flow → system logic → frontend → backend → database", "#a8e6cf")}
 
-${this.wrapWithColor("⚡ Daily Routine", "#ffd93d")}
-${this.wrapWithColor("   Membedah kebutuhan user, menyusun flow, menjaga akurasi data,", "#ffffff")}
-${this.wrapWithColor("   dan menjembatani komunikasi antara kebutuhan bisnis dan tim teknis.", "#ffffff")}
+${this.wrapWithColor("What I care about most", "#ffd93d")}
+${this.wrapWithColor("   Data access rules, flows that stay correct when something fails halfway,", "#ffffff")}
+${this.wrapWithColor("   and documented technical decisions so a project can be picked up later.", "#ffffff")}
 
-${this.wrapWithColor("╭───────────────────────────────────────────────────────╮", "#ffd93d")}
-${this.wrapWithColor("│", "#ffd93d")} ${this.wrapWithColor("Punya kebutuhan sistem yang perlu dirancang lebih rapi? Mari diskusi.", "#ffffff")} ${this.wrapWithColor("│", "#ffd93d")}
-${this.wrapWithColor("╰───────────────────────────────────────────────────────╯", "#ffd93d")}`;
+${this.wrapWithColor("Type 'projects' to see my work, or 'contact' to get in touch.", "#66d9ef")}`;
 
     const aboutDiv = document.createElement("div");
     aboutDiv.innerHTML = about;
@@ -610,26 +605,25 @@ ${this.wrapWithColor("╰──────────────────�
   }
 
   showExperience(outputElement = this.output) {
-    const experience = `<span style="color: #ffff00; font-weight: bold;">💼 Project & Experience</span>
+    const experience = `<span style="color: #ffff00; font-weight: bold;">Work</span>
 
-<span style="color: #66d9ef;">SYSTEM ANALYST</span>
-${this.wrapWithColor("2023 - Present | Jakarta, Indonesia", "#ffffff")}
+<span style="color: #66d9ef;">FEATURED</span>
+• ${this.wrapWithColor("Lahena", "#ff6b9d")}: ${this.wrapWithColor("Internship readiness platform with rule-based skill gap mapping · KMIPN VIII 2026 2nd Place", "#ffffff")}
+• ${this.wrapWithColor("NG Market", "#ff6b9d")}: ${this.wrapWithColor("Digital product marketplace (Next.js, Supabase, RLS)", "#ffffff")}
+• ${this.wrapWithColor("DiscloseKit", "#ff6b9d")}: ${this.wrapWithColor("Responsible disclosure report builder (SvelteKit)", "#ffffff")}
 
-• ${this.wrapWithColor("Sistem Manajemen Kas", "#ff6b9d")} - ${this.wrapWithColor("App pencatatan arus kas end-to-end (CI4, AJAX)", "#ffffff")}
-• ${this.wrapWithColor("Sistem Plotting Akademik", "#ff6b9d")} - ${this.wrapWithColor("Logic penjadwalan & deteksi bentrok ruangan", "#ffffff")}
-• ${this.wrapWithColor("Freelance OS", "#ff6b9d")} - ${this.wrapWithColor("CRM untuk tracking project dan kalkulasi invoice", "#ffffff")}
+<span style="color: #66d9ef;">IN DEVELOPMENT</span>
+• ${this.wrapWithColor("Lummix", "#ff6b9d")}: ${this.wrapWithColor("Mobile expense tracker with idempotent writes (Expo, PostgreSQL)", "#ffffff")}
+• ${this.wrapWithColor("Seikarsa", "#ff6b9d")}: ${this.wrapWithColor("Digital wedding invitation platform (Next.js, Supabase)", "#ffffff")}
 
-<span style="color: #66d9ef;">FREELANCE WEB DEVELOPER</span>
-${this.wrapWithColor("2021 - 2023 | Jakarta, Indonesia", "#ffffff")}
-
-• ${this.wrapWithColor("Fana Market", "#ff6b9d")} - ${this.wrapWithColor("Marketplace akun digital dengan Auto-delivery & Gateway", "#ffffff")}
-• ${this.wrapWithColor("BrewBuddy F&B", "#ff6b9d")} - ${this.wrapWithColor("Sistem order coffee shop, State Management & UI/UX", "#ffffff")}
-• ${this.wrapWithColor("Portal Berita Gamified", "#ff6b9d")} - ${this.wrapWithColor("Integrasi Read-to-Earn dan sistem reward", "#ffffff")}
-
-<span style="color: #66d9ef;">KITCHEN STAFF (F&B)</span>
-${this.wrapWithColor("2023 - 2024 | Jakarta, Indonesia", "#ffffff")}
-
-• ${this.wrapWithColor("Flow Operational", "#ff6b9d")} - ${this.wrapWithColor("Mengelola alur dapur sebelum terjun penuh ke Web Dev", "#ffffff")}`;
+<span style="color: #66d9ef;">ARCHIVE</span>
+• ${this.wrapWithColor("Gianagni Lofi Bot", "#ff6b9d")}: ${this.wrapWithColor("24/7 Lo-Fi radio bot for Discord with DAVE support", "#ffffff")}
+• ${this.wrapWithColor("SME Cash Management", "#ff6b9d")}: ${this.wrapWithColor("Cash flow tracking (CI4, AJAX)", "#ffffff")}
+• ${this.wrapWithColor("Fana Market", "#ff6b9d")}: ${this.wrapWithColor("Digital product marketplace (PHP)", "#ffffff")}
+• ${this.wrapWithColor("Academic Scheduling", "#ff6b9d")}: ${this.wrapWithColor("Scheduling with room conflict detection", "#ffffff")}
+• ${this.wrapWithColor("BrewBuddy F&B", "#ff6b9d")}: ${this.wrapWithColor("Coffee shop ordering flow", "#ffffff")}
+• ${this.wrapWithColor("Gamified News Portal", "#ff6b9d")}: ${this.wrapWithColor("Points for every article read to the end", "#ffffff")}
+• ${this.wrapWithColor("Freelance OS", "#ff6b9d")}: ${this.wrapWithColor("Client, project, and payment dashboard", "#ffffff")}`;
 
     const experienceDiv = document.createElement("div");
     experienceDiv.innerHTML = experience;
@@ -638,19 +632,12 @@ ${this.wrapWithColor("2023 - 2024 | Jakarta, Indonesia", "#ffffff")}
   }
 
   showEducation(outputElement = this.output) {
-    const education = `<span style="color: #ffd93d; font-weight: bold;">🎓 Education</span>
+    const education = `<span style="color: #ffd93d; font-weight: bold;">Education</span>
 
-${this.wrapWithColor("┌──────────────────────────────────────────────────┐", "#ffd93d")}
-${this.wrapWithColor("│", "#ffd93d")}${this.wrapWithColor(" Bachelor of Management Information ", "#ffffff")}${this.wrapWithColor("               │", "#ffd93d")}
-${this.wrapWithColor("└──────────────────────────────────────────────────┘", "#ffd93d")}
-
-${this.wrapWithColor("🏛️ Status: ", "#ffd93d")}  ${this.wrapWithColor("Undergraduate Student", "#ffffff")}
-${this.wrapWithColor("📅 Time: ", "#ffd93d")}    ${this.wrapWithColor("Present", "#ffffff")}
-${this.wrapWithColor("📍 Location: ", "#ffd93d")}${this.wrapWithColor("Jakarta, Indonesia", "#ffffff")}
-
-${this.wrapWithColor("╭──────────────────────────────────────────────────╮", "#ffd93d")}
-${this.wrapWithColor("│", "#ffd93d")}${this.wrapWithColor(" Focused on system analysis and web design     ", "#ffffff")}${this.wrapWithColor("│", "#ffd93d")}
-${this.wrapWithColor("╰──────────────────────────────────────────────────╯", "#ffd93d")}`;
+${this.wrapWithColor("Informatics Management", "#ffffff")}
+${this.wrapWithColor("Campus:    ", "#ffd93d")}${this.wrapWithColor("Politeknik LP3I Jakarta", "#ffffff")}
+${this.wrapWithColor("Status:    ", "#ffd93d")}${this.wrapWithColor("Active student", "#ffffff")}
+${this.wrapWithColor("Location:  ", "#ffd93d")}${this.wrapWithColor("Jakarta, Indonesia", "#ffffff")}`;
 
     const educationDiv = document.createElement("div");
     educationDiv.innerHTML = education;
@@ -659,26 +646,29 @@ ${this.wrapWithColor("╰──────────────────�
   }
 
   showSkills(outputElement = this.output) {
-    const skills = `<span style="color: #ffff00; font-weight: bold;">🛠️ TECHNICAL SKILLS</span>
+    const skills = `<span style="color: #ffff00; font-weight: bold;">TECHNOLOGY</span>
 
-<span style="color: #66d9ef;">[ Logical Architecture ]</span>
-• ${this.wrapWithColor("System Flow", "#ffffff")}
-• ${this.wrapWithColor("Business Logic", "#ffffff")}
-• ${this.wrapWithColor("Laravel / CodeIgniter", "#ffffff")}
-• ${this.wrapWithColor("Use Case Mapping", "#ffffff")}
+<span style="color: #66d9ef;">[ Primary ]</span>
+• ${this.wrapWithColor("Next.js", "#ffffff")}
+• ${this.wrapWithColor("TypeScript", "#ffffff")}
+• ${this.wrapWithColor("Supabase", "#ffffff")}
 
-<span style="color: #66d9ef;">[ Data Integrity & Security ]</span>
-• ${this.wrapWithColor("Database Design", "#ffffff")}
-• ${this.wrapWithColor("Data Integrity", "#ffffff")}
-• ${this.wrapWithColor("Security Mindset", "#ffffff")}
-• ${this.wrapWithColor("API Logic", "#ffffff")}
+<span style="color: #66d9ef;">[ Backend & Database ]</span>
+• ${this.wrapWithColor("PostgreSQL & RLS", "#ffffff")}
+• ${this.wrapWithColor("PHP / CodeIgniter 4", "#ffffff")}
+• ${this.wrapWithColor("MySQL", "#ffffff")}
+• ${this.wrapWithColor("Node.js", "#ffffff")}
 
-<span style="color: #66d9ef;">[ Accuracy & Team Communication ]</span>
-• ${this.wrapWithColor("Data Classification", "#ffffff")}
-• ${this.wrapWithColor("Validation Logic", "#ffffff")}
-• ${this.wrapWithColor("Technical Documentation", "#ffffff")}
-• ${this.wrapWithColor("Task Direction", "#ffffff")}
-• ${this.wrapWithColor("Requirement Communication", "#ffffff")}`;
+<span style="color: #66d9ef;">[ Frontend & Mobile ]</span>
+• ${this.wrapWithColor("Svelte / SvelteKit", "#ffffff")}
+• ${this.wrapWithColor("Expo / React Native", "#ffffff")}
+• ${this.wrapWithColor("Tailwind CSS", "#ffffff")}
+• ${this.wrapWithColor("jQuery & AJAX", "#ffffff")}
+
+<span style="color: #66d9ef;">[ Tools & Deploy ]</span>
+• ${this.wrapWithColor("Git & GitHub Actions", "#ffffff")}
+• ${this.wrapWithColor("Vercel", "#ffffff")}
+• ${this.wrapWithColor("Cloudflare Pages", "#ffffff")}`;
 
     const skillsDiv = document.createElement("div");
     skillsDiv.innerHTML = skills;
@@ -687,16 +677,16 @@ ${this.wrapWithColor("╰──────────────────�
   }
 
   showContact(outputElement = this.output) {
-    const contact = `<span style="color: #ffd93d; font-weight: bold;">📫 Contact Information</span>
+    const contact = `<span style="color: #ffd93d; font-weight: bold;">Contact Information</span>
 
 ${this.wrapWithColor("┌────────────────────────────────────────┐", "#ffd93d")}
-${this.wrapWithColor("│", "#ffd93d")} ${this.wrapWithColor("Mari diskusi soal rancangan sistem.", "#ffffff")}        ${this.wrapWithColor("│", "#ffd93d")}
+${this.wrapWithColor("│", "#ffd93d")} ${this.wrapWithColor("Let's talk about your project.", "#ffffff")}              ${this.wrapWithColor("│", "#ffd93d")}
 ${this.wrapWithColor("└────────────────────────────────────────┘", "#ffd93d")}
 
-${this.wrapWithColor("✉", "#ffd93d")}  ${this.wrapWithColor("Email:", "#ffd93d")}    ${this.wrapWithColor('<a href="mailto:nanditogianza@gmail.com" style="color: #ffffff; text-decoration: none;">nanditogianza@gmail.com</a>', "#ffffff")}
-${this.wrapWithColor("🌐", "#ffd93d")}  ${this.wrapWithColor("Website:", "#ffd93d")}  ${this.wrapWithColor('<a href="https://gianagni.my.id" target="_blank" style="color: #ffffff; text-decoration: none;">gianagni.my.id</a>', "#ffffff")}
-${this.wrapWithColor("⚡", "#ffd93d")}  ${this.wrapWithColor("Github:", "#ffd93d")}   ${this.wrapWithColor('<a href="https://github.com/gianagni" target="_blank" style="color: #ffffff; text-decoration: none;">github.com/gianagni</a>', "#ffffff")}
-${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ffd93d")} ${this.wrapWithColor('<a href="https://www.linkedin.com/in/nanditogianza?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" style="color: #ffffff; text-decoration: none;">linkedin.com/in/nanditogianza</a>', "#ffffff")}`;
+${this.wrapWithColor("Email:", "#ffd93d")}     ${this.wrapWithColor('<a href="mailto:nanditogianza@gmail.com" style="color: #ffffff; text-decoration: none;">nanditogianza@gmail.com</a>', "#ffffff")}
+${this.wrapWithColor("Website:", "#ffd93d")}   ${this.wrapWithColor('<a href="https://gianagni.my.id" target="_blank" style="color: #ffffff; text-decoration: none;">gianagni.my.id</a>', "#ffffff")}
+${this.wrapWithColor("GitHub:", "#ffd93d")}    ${this.wrapWithColor('<a href="https://github.com/gianagni" target="_blank" style="color: #ffffff; text-decoration: none;">github.com/gianagni</a>', "#ffffff")}
+${this.wrapWithColor("LinkedIn:", "#ffd93d")}  ${this.wrapWithColor('<a href="https://www.linkedin.com/in/nanditogianza" target="_blank" style="color: #ffffff; text-decoration: none;">linkedin.com/in/nanditogianza</a>', "#ffffff")}`;
 
     const contactDiv = document.createElement("div");
     contactDiv.innerHTML = contact;
@@ -739,16 +729,48 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
   loadProjects() {
     this.projects = [
       {
+        title: "Lahena",
+        description: "Internship readiness platform with a deterministic skill-gap rule engine. KMIPN VIII 2026 2nd Place.",
+        image: "images/projects/sampul.png",
+        technologies: ["Next.js", "TypeScript", "Supabase"],
+        demo: "https://lahena.vercel.app",
+        repo: "https://github.com/gianagni"
+      },
+      {
+        title: "NG Market",
+        description: "Digital product marketplace with RLS, a stock pool, and rate limiting.",
+        image: "images/projects/sampul.png",
+        technologies: ["Next.js", "Supabase", "PostgreSQL"],
+        demo: "https://market.gianagni.my.id/",
+        repo: "https://github.com/gianagni"
+      },
+      {
+        title: "DiscloseKit",
+        description: "Responsible disclosure report builder with an ethics checklist and in-browser PDF export.",
+        image: "images/projects/sampul.png",
+        technologies: ["SvelteKit", "TypeScript", "Cloudflare Pages"],
+        demo: "https://disclosekit.gianagni.my.id/",
+        repo: "https://github.com/gianagni/disclosekit"
+      },
+      {
+        title: "Lummix (In Dev)",
+        description: "Mobile expense tracker with idempotent writes and pgTAP tests.",
+        image: "images/projects/sampul.png",
+        technologies: ["Expo", "Supabase", "PostgreSQL"],
+        demo: "lummix.html",
+        repo: "https://github.com/gianagni"
+      },
+      {
         title: "Gianagni Lofi Bot",
-        description: "Discord bot pemutar musik Lo-Fi 24/7 dengan arsitektur stream audio khusus.",
-        image: "images/projects/discord-bot.png",
+        description: "24/7 Lo-Fi radio bot for Discord with DAVE voice encryption support.",
+        image: "images/projects/discord-bot.webp",
         technologies: ["Node.js", "Discord.js", "FFmpeg"],
         demo: "discord-bot.html",
         repo: "https://github.com/gianagni"
       },
       {
-        title: "Sistem Kas UMKM",
-        description: "Aplikasi pencatatan transaksi keuangan end-to-end dengan database ACID.",
+        title: "SME Cash Management",
+        description: "Cash flow tracking app using database transactions.",
         image: "images/projects/kas-manajemen.jpg",
         technologies: ["CodeIgniter 4", "AJAX", "MySQL"],
         demo: "kas-manajemen.html",
@@ -756,17 +778,17 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
       },
       {
         title: "Fana Market",
-        description: "Platform marketplace akun digital dengan auto-delivery dan gateway pembayaran.",
+        description: "Digital product marketplace with a payment gateway and automatic stock deduction.",
         image: "images/projects/fanamarket.jpg",
         technologies: ["PHP", "MySQL", "Tripay API"],
         demo: "fanamarket.html",
         repo: "https://github.com/gianagni"
       },
       {
-        title: "Plotting Akademik",
-        description: "Algoritma penjadwalan dosen & kelas untuk mendeteksi bentrok ruangan.",
+        title: "Academic Scheduling",
+        description: "Lecturer and class scheduling with room conflict detection.",
         image: "images/projects/plotting.jpg",
-        technologies: ["PHP Native", "Logic", "PDF Gen"],
+        technologies: ["PHP Native", "MySQL"],
         demo: "plotting.html",
         repo: "https://github.com/gianagni"
       }
@@ -779,7 +801,7 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
         "System Flow": 95,
         "Business Logic": 90,
         "Use Case Mapping": 88,
-        "Laravel / CI4": 85
+        "CodeIgniter 4": 85
       },
       "Data Integrity": {
         "Database Design": 95,
@@ -799,8 +821,8 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
       portfolio: {
         type: "directory",
         contents: {
-          "about.txt": { type: "file", content: "System Analyst from Jakarta..." },
-          "skills.md": { type: "file", content: "# System Analysis, Data Flow, Database Logic..." },
+          "about.txt": { type: "file", content: "Full-Stack Developer from Jakarta. Building products from problem to system." },
+          "skills.md": { type: "file", content: "# Next.js, TypeScript, Supabase, PostgreSQL, SvelteKit, CodeIgniter 4" },
         }
       }
     };
@@ -878,11 +900,11 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
     const outputElement = this.terminals[this.activeTerminal].input.closest(".terminal-content").querySelector("[id^='output']");
     this.printToOutput(outputElement, "Menggenerate PDF CV...", "info");
     setTimeout(() => {
-      this.printToOutput(outputElement, "Fitur cetak PDF akan segera hadir. Silakan cek halaman About utama.", "error");
+      this.printToOutput(outputElement, "PDF export is not available yet. Please check the main portfolio page.", "error");
     }, 1000);
   }
 
-  // Mini-game - Snake game with p5.js
+  // Mini-game: Snake with p5.js
   initGame() {
     this.endGame();
     this.gameActive = true;
@@ -894,8 +916,8 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
     gameContainer.id = "snake-game-container";
     gameContainer.innerHTML = `
       <div class="game-instructions">
-        <p>Snake Game: Gunakan Arrow Keys (Kiri/Kanan/Atas/Bawah) untuk bergerak.</p>
-        <p>Tekan P (Pause), SPACE (Restart), ESC (Keluar).</p>
+        <p>Snake Game: use the arrow keys to move.</p>
+        <p>Press P to pause, SPACE to restart, ESC to quit.</p>
       </div>
       <div id="snake-game-score">Score: 0</div>
       <div id="snake-game-canvas"></div>
@@ -948,7 +970,7 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
           drawGrid();
           p.fill(255); p.textSize(24); p.textAlign(p.CENTER, p.CENTER);
           p.text("PAUSED", canvasWidth / 2, canvasHeight / 2);
-          p.textSize(16); p.text("Tekan P untuk lanjut", canvasWidth / 2, canvasHeight / 2 + 30);
+          p.textSize(16); p.text("Press P to resume", canvasWidth / 2, canvasHeight / 2 + 30);
           return;
         }
         if (gameOver) {
@@ -956,7 +978,7 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
           p.fill(255, 0, 0); p.textSize(24); p.textAlign(p.CENTER, p.CENTER);
           p.text("Game Over!", canvasWidth / 2, canvasHeight / 2 - 20);
           p.textSize(16); p.text(`Score: ${score}`, canvasWidth / 2, canvasHeight / 2 + 20);
-          p.text("Tekan SPACE untuk restart", canvasWidth / 2, canvasHeight / 2 + 50);
+          p.text("Press SPACE to restart", canvasWidth / 2, canvasHeight / 2 + 50);
           return;
         }
         direction = nextDirection;
@@ -1067,7 +1089,7 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
 
     const instructions = document.createElement("div");
     instructions.className = "matrix-instructions";
-    instructions.textContent = "Ketik 'stop-matrix' untuk keluar";
+    instructions.textContent = "Type 'stop-matrix' to exit";
     matrixContainer.appendChild(instructions);
 
     outputElement.appendChild(matrixContainer);
@@ -1113,46 +1135,120 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
     if (matrixContainer) matrixContainer.remove();
   }
 
-  // Weather command
+  // Weather command: Open-Meteo public API (no API key for non-commercial use).
   async showWeather(location, outputElement) {
-    if (!location) {
-      this.printToOutput(outputElement, "Mohon masukkan nama kota. Contoh: weather Jakarta", "error");
+    const city = typeof location === "string" ? location.trim() : "";
+    if (!city) {
+      this.printToOutput(outputElement, "Please enter a city name. Example: weather Jakarta", "error");
       return;
     }
-    this.printToOutput(outputElement, `Mencari cuaca untuk ${location}...`, "info");
+
+    this.printToOutput(outputElement, `Looking up the weather for ${city}...`, "info");
     try {
-      const apiKey = "4331a27995f4c5b5e8d1eab1ed3d88b4"; 
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(location)}&appid=${apiKey}&units=metric`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`Error: ${response.status}`);
-      const data = await response.json();
-      
-      const weatherHTML = `<div class="weather-container">
-        <div class="weather-header">
-          <span style="color: #ffff00; font-weight: bold;">🌤️ Cuaca di ${data.name}, ${data.sys.country}</span>
-        </div>
-        <div class="weather-body">
-          <div class="weather-main">
-            <span style="font-size: 2rem; color: #ffffff;">${Math.round(data.main.temp)}°C</span>
-            <span style="color: #cccccc;">${data.weather[0].main}</span>
-          </div>
-          <div class="weather-details">
-            <div><span style="color: #87cefa;">Terasa seperti:</span> ${Math.round(data.main.feels_like)}°C</div>
-            <div><span style="color: #87cefa;">Kelembapan:</span> ${data.main.humidity}%</div>
-            <div><span style="color: #87cefa;">Angin:</span> ${Math.round(data.wind.speed * 3.6)} km/h</div>
-          </div>
-        </div>
-      </div>`;
-      this.printToOutput(outputElement, weatherHTML, "");
+      // Open-Meteo forecast API requires coordinates, so resolve the city first.
+      const geocodeUrl = new URL("https://geocoding-api.open-meteo.com/v1/search");
+      geocodeUrl.searchParams.set("name", city);
+      geocodeUrl.searchParams.set("count", "1");
+      geocodeUrl.searchParams.set("language", "en");
+      geocodeUrl.searchParams.set("format", "json");
+
+      const geocodeResponse = await fetch(geocodeUrl);
+      if (!geocodeResponse.ok) throw new Error("Geocoding request failed");
+      const geocodeData = await geocodeResponse.json();
+      const place = geocodeData.results?.[0];
+      if (!place || !Number.isFinite(place.latitude) || !Number.isFinite(place.longitude)) {
+        this.printToOutput(outputElement, `City not found: ${city}`, "error");
+        return;
+      }
+
+      const forecastUrl = new URL("https://api.open-meteo.com/v1/forecast");
+      forecastUrl.searchParams.set("latitude", String(place.latitude));
+      forecastUrl.searchParams.set("longitude", String(place.longitude));
+      forecastUrl.searchParams.set("current", "temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code");
+      forecastUrl.searchParams.set("wind_speed_unit", "kmh");
+
+      const forecastResponse = await fetch(forecastUrl);
+      if (!forecastResponse.ok) throw new Error("Weather request failed");
+      const forecastData = await forecastResponse.json();
+      const current = forecastData.current;
+      if (!current || !Number.isFinite(current.temperature_2m)) {
+        throw new Error("Current weather unavailable");
+      }
+
+      const code = current.weather_code;
+      let condition = "Unknown";
+      if (code === 0) condition = "Clear sky";
+      else if (code >= 1 && code <= 3) condition = "Cloudy";
+      else if (code >= 45 && code <= 48) condition = "Foggy";
+      else if (code >= 51 && code <= 57) condition = "Drizzle";
+      else if (code >= 61 && code <= 67) condition = "Rainy";
+      else if (code >= 71 && code <= 77) condition = "Snowy";
+      else if (code >= 80 && code <= 82) condition = "Rain showers";
+      else if (code >= 85 && code <= 86) condition = "Snow showers";
+      else if (code >= 95 && code <= 99) condition = "Thunderstorm";
+
+      const formatNumber = (value, unit) => Number.isFinite(value) ? `${Math.round(value)}${unit}` : "N/A";
+      const create = (tag, className, value) => {
+        const element = document.createElement(tag);
+        if (className) element.className = className;
+        if (value !== undefined) element.textContent = value;
+        return element;
+      };
+
+      // Use DOM nodes instead of innerHTML: location names come from a third-party API.
+      const panel = create("div", "weather-container");
+      const header = create("div", "weather-header");
+      const heading = create("span", "", `Weather in ${place.name}, ${place.country_code || place.country || ""}`);
+      heading.style.color = "#ffff00";
+      heading.style.fontWeight = "bold";
+      header.appendChild(heading);
+      panel.appendChild(header);
+
+      const body = create("div", "weather-body");
+      const main = create("div", "weather-main");
+      const temperature = create("span", "", formatNumber(current.temperature_2m, "°C"));
+      temperature.style.fontSize = "2rem";
+      temperature.style.color = "#ffffff";
+      const conditionText = create("span", "", condition);
+      conditionText.style.color = "#cccccc";
+      main.append(temperature, conditionText);
+
+      const details = create("div", "weather-details");
+      const detailRows = [
+        ["Feels like", formatNumber(current.apparent_temperature, "°C")],
+        ["Humidity", formatNumber(current.relative_humidity_2m, "%")],
+        ["Wind", formatNumber(current.wind_speed_10m, " km/h")]
+      ];
+      for (const [label, value] of detailRows) {
+        const row = create("div");
+        const caption = create("span", "", `${label}: `);
+        caption.style.color = "#87cefa";
+        row.append(caption, document.createTextNode(value));
+        details.appendChild(row);
+      }
+      body.append(main, details);
+      panel.appendChild(body);
+
+      const credit = create("div", "weather-credit", "Data: ");
+      credit.style.fontSize = "0.75rem";
+      credit.style.paddingTop = "0.5rem";
+      const sourceLink = create("a", "", "Open-Meteo");
+      sourceLink.href = "https://open-meteo.com/";
+      sourceLink.target = "_blank";
+      sourceLink.rel = "noopener noreferrer";
+      credit.appendChild(sourceLink);
+      panel.appendChild(credit);
+      outputElement.appendChild(panel);
+      this.scrollToBottom(outputElement.closest(".terminal-content"));
     } catch (error) {
-      this.printToOutput(outputElement, `Gagal mengambil data cuaca: Pastikan nama kota benar.`, "error");
+      this.printToOutput(outputElement, "Could not fetch the weather. Check the city name or try again.", "error");
     }
   }
 
   // Calculator command
   calculate(expression, outputElement) {
     if (!expression) {
-      this.printToOutput(outputElement, "Masukkan angka. Contoh: calc 5+5", "error");
+      this.printToOutput(outputElement, "Enter an expression. Example: calc 5+5", "error");
       return;
     }
     try {
@@ -1168,11 +1264,11 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
       </div>`;
       this.printToOutput(outputElement, calculationHTML, "");
     } catch (error) {
-      this.printToOutput(outputElement, `Error: Format matematika tidak valid.`, "error");
+      this.printToOutput(outputElement, `Error: invalid math expression.`, "error");
     }
   }
 
-  // LinkedIn Cover Generator (Disesuaikan untuk Dito)
+  // LinkedIn cover generator (customized for Dito)
   generateLinkedInCover(outputElement) {
     const coverContainer = document.createElement("div");
     coverContainer.className = "linkedin-cover-container";
@@ -1278,7 +1374,7 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
     terminalContent.appendChild(subtitle);
 
     const role = document.createElement("div");
-    role.textContent = "System Analyst";
+    role.textContent = "Full-Stack Developer";
     role.style.color = "#666666";
     role.style.fontSize = "10px";
     role.style.fontFamily = "'Fira Code', monospace";
@@ -1318,7 +1414,7 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
     commandOutput.style.marginTop = "10px";
 
     const helpTitle = document.createElement("div");
-    helpTitle.textContent = "🚀 Available Commands";
+    helpTitle.textContent = "Available Commands";
     helpTitle.style.color = "#ffff00";
     helpTitle.style.fontSize = "12px";
     helpTitle.style.fontWeight = "bold";
@@ -1335,7 +1431,7 @@ ${this.wrapWithColor("💼", "#ffd93d")}  ${this.wrapWithColor("LinkedIn:", "#ff
     const mainCommands = [
       { cmd: "about", desc: "Display professional summary" },
       { cmd: "skills", desc: "View technical expertise" },
-      { cmd: "experience", desc: "Show work history" },
+      { cmd: "experience", desc: "Show featured & archived work" },
     ];
 
     mainCommands.forEach((item) => {

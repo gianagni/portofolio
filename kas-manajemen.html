@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cash Management System - Detail Project | Nandito Gianza</title>
+    <title>Cash Management System | Detail Project | Nandito Gianza</title>
+    <meta name="description" content="SME Cash Management project by Nandito Gianza, focused on transaction and balance consistency.">
+    <link rel="canonical" href="https://gianagni.my.id/kas-manajemen.html">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
-    <link rel="stylesheet" href="neo-styles.css"> 
-    
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="neo-styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         .project-detail-header {
             text-align: center;
@@ -20,7 +22,7 @@
 
         .category-badge {
             display: inline-block;
-            background: var(--accent); /* Warna Hijau/Accent untuk Financial System */
+            background: var(--accent); /* Green/accent badge */
             color: var(--text);
             border: 3px solid var(--border);
             padding: 8px 20px;
@@ -100,7 +102,7 @@
         }
 
         .code-header {
-            background: var(--yellow); /* Warna beda untuk box code */
+            background: var(--yellow); /* Different color for the code box */
             padding: 1rem 1.5rem;
             border-bottom: 4px solid var(--border);
             font-family: 'Space Mono', monospace;
@@ -179,7 +181,7 @@
     </div>
 
     <div class="page-wrapper">
-        
+
         <nav class="navbar">
             <div class="nav-content">
                 <a href="index.html" class="nav-brand">NG</a>
@@ -195,7 +197,7 @@
         <section class="project-detail-header fade-in">
             <div class="category-badge">Financial System</div>
             <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Cash Management System.</h1>
-            
+
             <div class="tech-tags" style="justify-content: center; margin-bottom: 2rem;">
                 <span class="tag" style="background: var(--yellow);"><i class="fas fa-fire"></i> CodeIgniter 4</span>
                 <span class="tag" style="background: var(--cyan);"><i class="fas fa-sync-alt"></i> Recurring Engine</span>
@@ -210,26 +212,26 @@
                 <div class="circle"></div>
                 <div class="circle"></div>
             </div>
-            <img src="images/projects/kas-manajemen.jpg" alt="Dashboard Keuangan">
+            <img src="images/projects/kas-manajemen.jpg" alt="Finance dashboard">
         </div>
 
         <div class="container" style="padding-top: 0; max-width: 1100px;">
-            
+
             <div class="analysis-grid">
                 <div class="card fade-in">
                     <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
                     <p class="text">
-                        Kebanyakan aplikasi keuangan hanya mencatat masa lalu (*history*) tanpa memberi kendali untuk masa depan. Pengguna sering lupa mencatat tagihan rutin bulanan atau tidak menyadari bahwa saldo di dompet (*e-wallet*) mereka berbeda dengan saldo Bank aslinya.
+                        Most finance apps only record the past without giving any control over what comes next. Users often forget to log recurring monthly bills, or don't notice that their e-wallet balance differs from their actual bank balance.
                     </p>
                 </div>
 
                 <div class="card highlight-box fade-in" style="background: var(--accent);">
                     <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
                     <p class="text">
-                        Saya mengimplementasikan <strong>Recurring Transaction Engine</strong> yang berjalan via CRON Job untuk otomatis mencatat transaksi berulang (seperti langganan Netflix/Spotify). 
+                        I implemented a <strong>recurring transaction engine</strong> that runs as a CRON job to record repeating transactions automatically (such as streaming subscriptions).
                     </p>
                     <p class="text">
-                        Selain itu, sistem <strong>Multi-Wallet</strong> memastikan saldo terpisah secara logis antar akun (Bank, Cash, E-wallet) namun tetap teragregasi secara mulus di dalam satu antarmuka dashboard utama.
+                        A <strong>multi-wallet</strong> system keeps balances separate per account (bank, cash, e-wallet) while still adding them up in one main dashboard.
                     </p>
                 </div>
             </div>
@@ -238,14 +240,14 @@
                 <div class="card fade-in" style="grid-column: 1 / -1;">
                     <h3 class="analysis-title"><i class="fas fa-database" style="color: var(--cyan);"></i> Database Logic (Schema Analysis)</h3>
                     <p class="text">
-                        Berdasarkan skema `db_cashmanagement.sql`, struktur data dirancang untuk fleksibilitas tinggi. Tabel `recurring_transactions` menyimpan jadwal tagihan, sementara `transfers` mencatat perpindahan uang antar dompet tanpa dianggap sebagai pengeluaran nyata (*Zero-Sum Game*).
+                        Based on the <code>db_cashmanagement.sql</code> schema, the data model is built to be flexible. The <code>recurring_transactions</code> table stores bill schedules, while <code>transfers</code> records money moving between wallets without counting it as real spending (a zero-sum movement).
                     </p>
-                    
+
                     <ul class="job-list" style="margin: 1.5rem 0 2rem 0;">
-                        <li><strong>Soft Deletes:</strong> Menggunakan `is_active` flag di tabel *recurring* untuk mencegah kehilangan data riwayat ketika pengguna menghapus jadwal tagihan.</li>
-                        <li><strong>Budget Constraints:</strong> Tabel `budgets` terhubung secara relasional ke tabel `categories` untuk memicu peringatan jika pengeluaran melebihi batas (70% Warning, 90% Alert).</li>
+                        <li><strong>Soft Deletes:</strong> An <code>is_active</code> flag on the recurring table keeps history intact when a user deletes a bill schedule.</li>
+                        <li><strong>Budget Constraints:</strong> The <code>budgets</code> table is related to <code>categories</code> to trigger warnings when spending passes a threshold (70% warning, 90% alert).</li>
                     </ul>
-                    
+
                     <div style="background: var(--pink); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border);">
                         <h4 style="font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;"><i class="fas fa-table" style="margin-right: 8px;"></i> Recurring Table Structure:</h4>
                         <div class="code-snippet" style="background: var(--white); border: 2px solid var(--border); padding: 1rem; font-family: 'Space Mono', monospace; font-size: 0.95rem;">
@@ -266,27 +268,27 @@
                     <i class="fas fa-code" style="font-size: 1.5rem;"></i> TransactionController.php (Key Logic: Atomic Transfer)
                 </div>
                 <div class="code-body">
-                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Fitur Transfer antar dompet menggunakan <span class="highlight highlight-yellow">ACID Transaction</span> untuk menjamin konsistensi data. Uang tidak akan pernah hilang ataupun terduplikasi jika terjadi koneksi terputus di tengah proses pertukaran saldo.</p>
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">Transfers between wallets use an <span class="highlight highlight-yellow">ACID transaction</span> to keep the data consistent. Money is never lost or duplicated if the connection drops in the middle of a balance transfer.</p>
 <pre><code>public function transferBalance() {
-    $this->db->transStart(); // Mulai Transaksi ACID
+    $this->db->transStart(); // Start the ACID transaction
 
     try {
-        // 1. Kurangi Saldo Pengirim
+        // 1. Deduct from the sender
         $this->walletModel->deductBalance($fromId, $amount);
 
-        // 2. Tambah Saldo Penerima
+        // 2. Add to the receiver
         $this->walletModel->addBalance($toId, $amount);
 
-        // 3. Catat di Tabel Transfers (Bukan Transactions/Pengeluaran)
+        // 3. Record in transfers (not in transactions/expenses)
         $this->transferModel->save([
             'from_account_id' => $fromId,
             'to_account_id' => $toId,
             'amount' => $amount
         ]);
 
-        $this->db->transComplete(); // Commit perubahan
+        $this->db->transComplete(); // Commit the changes
     } catch (\Exception $e) {
-        // Auto Rollback: batalkan semua query jika terjadi satu saja error
+        // Auto rollback: undo every query if any single one fails
         log_message('error', 'Transfer failed: ' . $e->getMessage());
     }
 }</code></pre>
@@ -302,11 +304,11 @@
                 </div>
             </div>
         </footer>
-        
-    </div> 
+
+    </div>
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -316,9 +318,7 @@
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -327,7 +327,8 @@
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -337,7 +338,7 @@
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
                 updateIcon(newTheme);
             });
         }
@@ -353,7 +354,7 @@
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

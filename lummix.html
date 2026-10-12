@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lummix | Detail Project | Nandito Gianza</title>
+    <meta name="description" content="Lummix, an in-development mobile expense tracking app with a focus on reliable transaction recording.">
+    <link rel="canonical" href="https://gianagni.my.id/lummix.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="stylesheet" href="neo-styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .project-detail-header {
+            text-align: center;
+            padding: 80px 20px 40px 20px;
+            position: relative;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: var(--accent); /* Green/accent badge */
+            color: var(--text);
+            border: 3px solid var(--border);
+            padding: 8px 20px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0 var(--border);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banner-wrapper {
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            border: 4px solid var(--border);
+            box-shadow: 12px 12px 0 var(--border);
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-wrapper img {
+            width: 100%;
+            display: block;
+            border-bottom: 4px solid var(--border);
+            background: var(--pink); /* Fallback color */
+        }
+
+        .banner-bar {
+            background: var(--cyan);
+            padding: 10px 20px;
+            display: flex;
+            gap: 10px;
+            border-bottom: 4px solid var(--border);
+        }
+
+        .circle {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 3px solid var(--border);
+            background: var(--white);
+        }
+
+        .circle:nth-child(1) { background: #ff5f56; } /* Mac OS Close */
+        .circle:nth-child(2) { background: #ffbd2e; } /* Mac OS Min */
+        .circle:nth-child(3) { background: #27c93f; } /* Mac OS Max */
+
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .analysis-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .analysis-title i {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+
+        .code-card {
+            padding: 0;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .code-header {
+            background: var(--yellow); /* Different color for the code box */
+            padding: 1rem 1.5rem;
+            border-bottom: 4px solid var(--border);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .code-body {
+            background: var(--white);
+            padding: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .code-body pre {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--text);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .logic-step {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-family: 'Space Mono', monospace;
+            font-weight: 600;
+        }
+
+        .logic-step::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+            font-weight: 900;
+        }
+
+        @media (max-width: 768px) {
+            .analysis-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0;
+        }
+        .status-col {
+            padding: 1.5rem;
+        }
+        .status-col + .status-col {
+            border-left: 4px solid var(--border);
+        }
+        .status-col h3 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            margin: 0 0 1rem;
+        }
+        .status-col ul {
+            margin: 0;
+            padding-left: 1.1rem;
+            line-height: 1.7;
+        }
+        .decision-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+            display: grid;
+            gap: 1rem;
+        }
+        .decision-list li {
+            border: 3px solid var(--border);
+            background: var(--white);
+            padding: 1rem 1.25rem;
+            box-shadow: 4px 4px 0 var(--border);
+            line-height: 1.6;
+        }
+        .decision-list strong {
+            display: block;
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 0.25rem;
+        }
+        .analysis-grid {
+            grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+        }
+        @media (max-width: 768px) {
+            .status-grid { grid-template-columns: minmax(0, 1fr); }
+            .status-col + .status-col { border-left: none; border-top: 4px solid var(--border); }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div class="loader-overlay">
+        <div class="loader-shapes">
+            <div class="loader-shape-svg loader-shape-1">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#66d9ef" stroke="#000" stroke-width="4"/>
+                    <path d="M35 40 L20 50 L35 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M65 40 L80 50 L65 60" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="55" y1="35" x2="45" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="loader-shape-svg loader-shape-2">
+                <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="6" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <rect x="3" y="3" width="88" height="88" rx="8" fill="#ffd93d" stroke="#000" stroke-width="4"/>
+                    <path d="M25 35 L40 50 L25 65" stroke="#000" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <line x1="50" y1="65" x2="75" y2="65" stroke="#000" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="loader-wrapper">
+            <div class="loader-letter">N</div>
+            <div class="loader-letter">G</div>
+        </div>
+        <div class="loader-progress-bar">
+            <div class="loader-progress-fill"></div>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+
+        <nav class="navbar">
+            <div class="nav-content">
+                <a href="index.html" class="nav-brand">NG</a>
+                <div class="nav-right">
+                    <a href="projects.html" class="nav-cta"><i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Projects</a>
+                    <button id="theme-toggle" class="theme-toggle-nav" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail-header fade-in">
+            <div class="category-badge" style="background: var(--pink);">Personal Finance · In Development</div>
+            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Lummix.</h1>
+            <div class="tech-tags" style="justify-content: center; margin-bottom: 2rem;">
+                <span class="tag" style="background: var(--accent); color: #000;"><i class="fas fa-mobile-alt" aria-hidden="true"></i> Expo / React Native</span>
+                <span class="tag" style="background: var(--yellow); color: #000;"><i class="fas fa-database" aria-hidden="true"></i> Supabase</span>
+                <span class="tag" style="background: var(--cyan); color: #000;"><i class="fas fa-server" aria-hidden="true"></i> PostgreSQL</span>
+                <span class="tag" style="background: var(--white); color: #000;"><i class="fas fa-vial" aria-hidden="true"></i> pgTAP</span>
+            </div>
+        </section>
+
+        <div class="banner-wrapper fade-in">
+            <div class="banner-bar">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <span style="font-family: 'Space Mono', monospace; font-weight: 700; margin-left: 8px; color: #000;">status: in development</span>
+            </div>
+            <div class="status-grid">
+                <div class="status-col">
+                    <h3><i class="fas fa-check" aria-hidden="true"></i> Working now</h3>
+                    <ul>
+                        <li>Sign up, sign in, email OTP verification, password reset</li>
+                        <li>Time zone setup before recording starts</li>
+                        <li>Database functions for recording expenses and reconciling operations</li>
+                        <li>Database tests and a CI pipeline</li>
+                    </ul>
+                </div>
+                <div class="status-col">
+                    <h3><i class="fas fa-hourglass-half" aria-hidden="true"></i> Not built yet</h3>
+                    <ul>
+                        <li>Add expense screen</li>
+                        <li>Transaction history and monthly summary</li>
+                        <li>Deployment to a public environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding-top: 0; max-width: 1100px;">
+            <div class="analysis-grid">
+                <div class="card fade-in">
+                    <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);" aria-hidden="true"></i> The Challenge</h3>
+                    <p class="text">
+                        In a finance app, <strong>a timeout does not mean failure</strong>. A request can reach the server and be saved while the response gets lost on the way back. If the user then taps "Save" again, the expense is recorded twice and every summary becomes wrong.
+                    </p>
+                    <p class="text">
+                        The second problem: once the connection is back, the app has to know for certain whether that operation went through, without guessing.
+                    </p>
+                </div>
+
+                <div class="card highlight-box fade-in" style="background: var(--accent);">
+                    <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: #000;" aria-hidden="true"></i> Technical Solution</h3>
+                    <ul class="job-list" style="margin-top: 0.5rem; color: #000;">
+                        <li><strong>Operation ID:</strong> every write carries a unique ID from the client. Retrying with the same ID and payload returns the original result with no new effect.</li>
+                        <li><strong>Receipt:</strong> the outcome of every operation is stored as <code>applied</code>, <code>rejected</code>, or <code>not_applied</code>. No "pending" state is ever treated as success.</li>
+                        <li><strong>Reconciliation:</strong> a client that lost a response can ask for the result, or ask the server to close that operation as <code>not_applied</code>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card code-card fade-in">
+                <div class="code-header">
+                    <i class="fas fa-code" style="font-size: 1.5rem;" aria-hidden="true"></i> create_expense_v1 (excerpt, PL/pgSQL)
+                </div>
+                <div class="code-body">
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">Writes and the resolver take the same <span class="highlight highlight-yellow">transactional advisory lock</span> on <code>(user_id, operation_id)</code>. As a result, a late request cannot commit after its operation has already been declared not applied.</p>
+<pre><code>-- Serialize per (user_id, operation_id); released automatically on commit/rollback
+perform pg_advisory_xact_lock(app_private.operation_lock_key(v_user_id, v_operation_id));
+
+select r.* into v_existing
+  from app_private.operation_receipts r
+ where r.user_id = v_user_id and r.operation_id = v_operation_id;
+
+if found then
+  if v_existing.outcome = 'not_applied' then
+    return mutation_receipt_json(v_existing);  -- already closed by the resolver
+  end if;
+  if v_existing.payload_fingerprint is distinct from v_fingerprint then
+    raise exception 'IDEMPOTENCY_PAYLOAD_MISMATCH';  -- same ID, different payload
+  end if;
+  return mutation_receipt_json(v_existing);    -- identical retry: no new effect
+end if;</code></pre>
+                </div>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="card fade-in">
+                    <h3 class="analysis-title"><i class="fas fa-lock" style="color: var(--cyan);" aria-hidden="true"></i> Data Access</h3>
+                    <ul class="job-list">
+                        <li>The client has no direct access to the transactions table. Every read and write goes through RPC functions.</li>
+                        <li>RPC functions run as <code>SECURITY DEFINER</code> with a locked <code>search_path</code> and only touch data owned by the signed-in user.</li>
+                        <li>Amounts are stored as whole rupiah, not decimals, so there are no rounding errors.</li>
+                    </ul>
+                </div>
+                <div class="card fade-in">
+                    <h3 class="analysis-title"><i class="fas fa-vial" style="color: var(--pink);" aria-hidden="true"></i> Verification</h3>
+                    <ul class="job-list">
+                        <li>8 pgTAP test files (about 3,800 lines) covering schema, permissions, idempotency, and reconciliation.</li>
+                        <li>Tests on the mobile side and in a shared contracts package for input validation.</li>
+                        <li>GitHub Actions CI runs typecheck, lint, tests, and a secret scan on every push.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card fade-in" style="margin-bottom: 4rem;">
+                <h3 class="analysis-title"><i class="fas fa-route" style="color: var(--yellow);" aria-hidden="true"></i> How This Project Is Built</h3>
+                <p class="text">
+                    I write the scope, design decisions, and the spec for every task first, as a PRD and <strong>22 decision records</strong>, before any code exists. The implementation is written with the help of an AI coding agent, one task at a time, and a task is only accepted after it passes every CI check and the database tests.
+                </p>
+                <p class="text">
+                    This is deliberate: in a finance domain, questions like "what does a timeout mean" have to be decided and written down, not left to a guess while coding.
+                </p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-compact">
+                <div class="footer-bottom-compact" style="justify-content: center; padding-top: 0; border-top: none;">
+                    <span style="font-size: 0.95rem;">© 2026 Nandito Gianza. System Online.</span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // Start at the top on reload
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        // Loading Screen Logic
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loader-overlay');
+            if(loader) {
+                loader.classList.add('hidden');
+            }
+        });
+
+        // Dark Mode / Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle ? themeToggle.querySelector('i') : null;
+
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
+        body.setAttribute('data-theme', currentTheme);
+        if(icon) updateIcon(currentTheme);
+
+        if(themeToggle){
+            themeToggle.addEventListener('click', () => {
+                const theme = body.getAttribute('data-theme');
+                const newTheme = theme === 'light' ? 'dark' : 'light';
+
+                body.setAttribute('data-theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
+                updateIcon(newTheme);
+            });
+        }
+
+        function updateIcon(theme) {
+            if(!icon) return;
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Fade-in effect on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

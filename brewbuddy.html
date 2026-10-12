@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BrewBuddy Logic - Detail Project | Nandito Gianza</title>
+    <title>BrewBuddy Logic | Detail Project | Nandito Gianza</title>
     
-    <link rel="icon" type="image/png" href="images/icons/logo.png">
+    <meta name="description" content="BrewBuddy project by Nandito Gianza, focused on a coffee shop ordering experience and cashier workflow.">
+    <link rel="canonical" href="https://gianagni.my.id/brewbuddy.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <link rel="stylesheet" href="neo-styles.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,7 +23,7 @@
 
         .category-badge {
             display: inline-block;
-            background: var(--cyan); /* Warna Cyan untuk UI/UX App */
+            background: var(--cyan); /* Cyan for the UI/UX app */
             color: var(--text);
             border: 3px solid var(--border);
             padding: 8px 20px;
@@ -101,7 +103,7 @@
         }
 
         .code-header {
-            background: var(--accent); /* Warna accent untuk box code */
+            background: var(--accent); /* Accent color for the code box */
             padding: 1rem 1.5rem;
             border-bottom: 4px solid var(--border);
             font-family: 'Space Mono', monospace;
@@ -220,21 +222,21 @@
                 <div class="card fade-in">
                     <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
                     <p class="text">
-                        <strong>Context:</strong> Proyek ini berawal dari desain UI/UX yang kompleks yang mencakup alur pemesanan lengkap: dari memilih menu, mengatur varian (Ice/Hot, Sugar Level), hingga pelacakan status pesanan.
+                        <strong>Context:</strong> This project started from a complex UI/UX design covering the full ordering flow: choosing from the menu, setting variants (Ice/Hot, Sugar Level), and tracking the order status.
                     </p>
                     <p class="text">
-                        Tantangannya adalah menerjemahkan desain statis tersebut menjadi <strong>logika aplikasi yang fungsional</strong>. Bagaimana memastikan item yang dipilih di menu tersimpan dengan benar di keranjang (<code>cart</code>) dan terhubung ke sistem pembayaran tanpa *data loss*.
+                        The challenge was turning that static design into <strong>working application logic</strong>: making sure items picked from the menu are saved correctly in the <code>cart</code> and reach the payment step without any data loss.
                     </p>
                 </div>
 
                 <div class="card highlight-box fade-in" style="background: var(--yellow);">
                     <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
                     <p class="text">
-                        Saya menerapkan logika <strong>State Management</strong> di sisi frontend menggunakan Vanilla JS untuk menangani keranjang belanja secara dinamis sebelum data dikirim ke server via *form submission* atau AJAX.
+                        I implemented frontend <strong>state management</strong> in vanilla JS to handle the shopping cart dynamically before the data is sent to the server through a form submission or AJAX.
                     </p>
                     <ul class="job-list" style="margin-top: 1rem;">
-                        <li><strong>Persistent Cart:</strong> Menggunakan tabel database <code>cart</code> (bukan hanya session browser) agar keranjang user tidak hilang saat berganti perangkat.</li>
-                        <li><strong>Order Tracking Logic:</strong> Status pesanan (<code>Pending</code> -> <code>Processing</code> -> <code>Completed</code>) diatur melalui logika <em>backend</em> yang ketat.</li>
+                        <li><strong>Persistent Cart:</strong> Uses a <code>cart</code> database table (not just the browser session) so a user's cart survives switching devices.</li>
+                        <li><strong>Order Tracking Logic:</strong> Order status (<code>Pending</code>, <code>Processing</code>, <code>Completed</code>) is controlled by strict backend logic.</li>
                     </ul>
                 </div>
             </div>
@@ -243,13 +245,13 @@
                 <div class="card fade-in" style="grid-column: 1 / -1;">
                     <h3 class="analysis-title"><i class="fas fa-database" style="color: var(--cyan);"></i> Database & Relational Logic</h3>
                     <p class="text">
-                        Berdasarkan arsitektur data <code>db_brewbuddy.sql</code>, saya merancang skema relasional yang efisien untuk menangani transaksi kedai kopi secara komprehensif.
+                        Based on the <code>db_brewbuddy.sql</code> data architecture, I designed a relational schema that covers the coffee shop's transactions end to end.
                     </p>
                     
                     <ul class="job-list" style="margin: 1.5rem 0 2rem 0;">
-                        <li><code>products</code>: Menyimpan menu dengan kategori spesifik (Coffee, Non-Coffee, Pastry).</li>
-                        <li><code>cart</code>: Tabel sementara untuk menampung item yang dipilih sebelum masuk ke proses checkout.</li>
-                        <li><code>orders</code> & <code>order_details</code>: Menyimpan riwayat transaksi yang sudah final (immutable) beserta relasi detail pesanannya.</li>
+                        <li><code>products</code>: Stores the menu with specific categories (Coffee, Non-Coffee, Pastry).</li>
+                        <li><code>cart</code>: Temporary table holding selected items before checkout.</li>
+                        <li><code>orders</code> & <code>order_details</code>: Store finalized (immutable) transaction history together with the related order details.</li>
                     </ul>
                     
                     <div style="background: var(--pink); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border);">
@@ -272,7 +274,7 @@
                     <i class="fab fa-js" style="font-size: 1.5rem;"></i> CartManager.js (Frontend Cart Calculation)
                 </div>
                 <div class="code-body">
-                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Contoh logika JavaScript untuk memanipulasi DOM dan menghitung total harga secara <em>real-time</em> saat user menambah kuantitas pesanan, sebelum dikirim ke backend.</p>
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">Example JavaScript logic that updates the DOM and recalculates the total price in <em>real time</em> as the user changes quantities, before anything is sent to the backend.</p>
 <pre><code>const updateCartTotal = () => {
     let total = 0;
     const cartItems = document.querySelectorAll('.cart-item');
@@ -281,18 +283,18 @@
         const price = parseFloat(item.dataset.price);
         const quantity = parseInt(item.querySelector('.qty-input').value);
         
-        // Kalkulasi Subtotal per Item
+        // Subtotal per item
         const subtotal = price * quantity;
         item.querySelector('.subtotal').innerText = formatRupiah(subtotal);
         
-        // Akumulasi Total
+        // Running total
         total += subtotal;
     });
 
-    // Update UI Total Pembayaran
+    // Update the grand total in the UI
     document.getElementById('grand-total').innerText = formatRupiah(total);
     
-    // Enable/Disable tombol Checkout agar tidak bisa submit kosong
+    // Disable checkout while the cart is empty
     const checkoutBtn = document.getElementById('btn-checkout');
     checkoutBtn.disabled = total === 0;
 };</code></pre>
@@ -312,7 +314,7 @@
     </div> 
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -322,9 +324,7 @@
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -333,7 +333,8 @@
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -343,7 +344,7 @@
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
                 updateIcon(newTheme);
             });
         }
@@ -359,7 +360,7 @@
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

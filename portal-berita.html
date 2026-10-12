@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamified News Portal - Detail Project | Nandito Gianza</title>
+    <title>Gamified News Portal | Detail Project | Nandito Gianza</title>
     
-    <link rel="icon" type="image/png" href="images/icons/logo.png">
+    <meta name="description" content="Gamified News Portal project by Nandito Gianza, a reading experience with engagement points.">
+    <link rel="canonical" href="https://gianagni.my.id/portal-berita.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <link rel="stylesheet" href="neo-styles.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,7 +23,7 @@
 
         .category-badge {
             display: inline-block;
-            background: var(--pink); /* Warna Merah/Pink untuk Portal Berita */
+            background: var(--pink); /* Pink for the news portal */
             color: var(--text);
             border: 3px solid var(--border);
             padding: 8px 20px;
@@ -101,7 +103,7 @@
         }
 
         .code-header {
-            background: var(--cyan); /* Warna cyan untuk box code */
+            background: var(--cyan); /* Cyan for the code box */
             padding: 1rem 1.5rem;
             border-bottom: 4px solid var(--border);
             font-family: 'Space Mono', monospace;
@@ -195,7 +197,7 @@
 
         <section class="project-detail-header fade-in">
             <div class="category-badge">Content Management System</div>
-            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Portal Berita Gamifikasi.</h1>
+            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Gamified News Portal.</h1>
             
             <div class="tech-tags" style="justify-content: center; margin-bottom: 2rem;">
                 <span class="tag" style="background: var(--yellow);"><i class="fab fa-php"></i> PHP Native</span>
@@ -211,7 +213,7 @@
                 <div class="circle"></div>
                 <div class="circle"></div>
             </div>
-            <img src="images/projects/portal-berita.jpg" alt="Portal Berita Dashboard">
+            <img src="images/projects/portal-berita.jpg" alt="News portal dashboard">
         </div>
 
         <div class="container" style="padding-top: 0; max-width: 1100px;">
@@ -220,22 +222,22 @@
                 <div class="card fade-in">
                     <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
                     <p class="text">
-                        <strong>Problem Statement:</strong> Portal berita konvensional seringkali membosankan dan gagal mempertahankan retensi pembaca (<em>User Retention</em>). Pengunjung biasanya hanya membaca satu artikel lalu pergi yang mengakibatkan <em>Bounce Rate</em> tinggi.
+                        <strong>Problem Statement:</strong> Conventional news portals are often dull and fail to retain readers. Visitors usually read one article and leave, which leads to a high <em>bounce rate</em>.
                     </p>
                     <p class="text">
-                        Tantangannya adalah menciptakan ekosistem membaca yang <strong>interaktif dan menguntungkan</strong> bagi pengguna, sehingga mereka termotivasi untuk membaca lebih banyak artikel setiap harinya.
+                        The challenge was creating a reading experience that is <strong>interactive and rewarding</strong>, so users are motivated to read more articles every day.
                     </p>
                 </div>
 
                 <div class="card highlight-box fade-in" style="background: var(--cyan);">
                     <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
                     <p class="text">
-                        Saya membangun Portal Berita berbasis <strong>PHP Native</strong> yang diintegrasikan dengan logika <strong>Sistem Gamifikasi</strong>.
+                        I built the news portal in <strong>native PHP</strong> with a <strong>gamification system</strong> on top.
                     </p>
                     <ul class="job-list" style="margin-top: 1rem;">
-                        <li><strong>Read-to-Earn:</strong> Algoritma otomatis memberikan 10 Poin setiap kali user selesai membaca artikel secara penuh (validasi durasi).</li>
-                        <li><strong>Reward Exchange:</strong> Poin yang terkumpul dapat ditukarkan secara <em>real-time</em> dengan hadiah digital (Pulsa, Voucher) melalui katalog hadiah.</li>
-                        <li><strong>Security First:</strong> Login aman dengan enkripsi MD5 dan proteksi input ketat untuk mencegah serangan XSS/SQL Injection.</li>
+                        <li><strong>Read-to-Earn:</strong> Users automatically earn 10 points each time they finish reading an article (validated by reading time).</li>
+                        <li><strong>Reward Exchange:</strong> Points can be exchanged in <em>real time</em> for digital rewards (phone credit, vouchers) from a reward catalog.</li>
+                        <li><strong>Security First:</strong> Login with MD5 encryption and strict input protection against XSS and SQL injection.</li>
                     </ul>
                 </div>
             </div>
@@ -244,14 +246,14 @@
                 <div class="card fade-in" style="grid-column: 1 / -1;">
                     <h3 class="analysis-title"><i class="fas fa-database" style="color: var(--accent);"></i> Database Gamification Schema</h3>
                     <p class="text">
-                        Berdasarkan struktur <em>database</em>, saya merancang tabel khusus yang saling berelasi untuk menangani logika poin dan sistem penukaran hadiah agar integritas data tetap terjaga.
+                        I designed a set of related tables to handle the points logic and reward exchange while keeping the data consistent.
                     </p>
                     
                     <ul class="job-list" style="margin: 1.5rem 0 2rem 0;">
-                        <li><code>tb_user</code>: Menyimpan total akumulasi poin pengguna (kolom <code>poin</code>).</li>
-                        <li><code>tb_berita</code>: Menyimpan master konten artikel yang menjadi sumber poin.</li>
-                        <li><code>tb_riwayat</code>: Mencatat riwayat/<em>history</em> baca agar pengguna tidak bisa mengakali sistem untuk mendapat poin ganda dari artikel yang sama.</li>
-                        <li><code>tb_tukar_poin</code>: Menjadi log transaksi untuk penukaran poin menjadi hadiah (berfungsi sebagai bukti transaksi).</li>
+                        <li><code>tb_user</code>: Stores each user's accumulated points (the <code>poin</code> column).</li>
+                        <li><code>tb_berita</code>: The master list of articles that award points.</li>
+                        <li><code>tb_riwayat</code>: Reading history, so users can't game the system and earn points twice for the same article.</li>
+                        <li><code>tb_tukar_poin</code>: Transaction log for point redemptions (serves as proof of each exchange).</li>
                     </ul>
                     
                     <div style="background: var(--yellow); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border);">
@@ -260,7 +262,7 @@
                         <div class="logic-step">THEN:</div>
                         <div class="logic-step">1. INSERT INTO tb_riwayat (id_user, id_berita, waktu)</div>
                         <div class="logic-step">2. UPDATE tb_user SET poin = poin + 10</div>
-                        <div class="logic-step" style="color: var(--text); background: var(--pink); border: 2px solid var(--border); padding: 0.2rem 0.5rem; display: inline-block; margin-top: 10px;">3. SHOW NOTIFICATION "Selamat! +10 Poin"</div>
+                        <div class="logic-step" style="color: var(--text); background: var(--pink); border: 2px solid var(--border); padding: 0.2rem 0.5rem; display: inline-block; margin-top: 10px;">3. SHOW NOTIFICATION "Congrats! +10 points"</div>
                     </div>
                 </div>
             </div>
@@ -270,23 +272,23 @@
                     <i class="fas fa-code" style="font-size: 1.5rem;"></i> BacaBeritaController.php (Point Injection Logic)
                 </div>
                 <div class="code-body">
-                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Berikut adalah implementasi logika <em>backend</em> PHP untuk memberikan poin kepada pengguna secara otomatis saat validasi syarat membaca artikel telah terpenuhi.</p>
-<pre><code>// Cek apakah user sudah pernah baca artikel ini sebelumnya?
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">This is the PHP backend logic that awards points automatically once the reading requirement is met.</p>
+<pre><code>// Has this user already read this article?
 $cekRiwayat = mysqli_query($koneksi, "SELECT * FROM tb_riwayat 
                                       WHERE id_user='$uid' AND id_berita='$id_berita'");
 
 if(mysqli_num_rows($cekRiwayat) == 0) {
-    // 1. Catat Riwayat Baca agar tidak ada double-claim
+    // 1. Record the read so points can't be claimed twice
     mysqli_query($koneksi, "INSERT INTO tb_riwayat (id_user, id_berita, tanggal) 
                             VALUES ('$uid', '$id_berita', NOW())");
     
-    // 2. Tambah Poin User (+10) secara real-time
+    // 2. Add 10 points to the user
     mysqli_query($koneksi, "UPDATE tb_user SET poin = poin + 10 WHERE id_user='$uid'");
     
-    // 3. Berikan Feedback Positif ke User
-    $alert = "Artikel selesai dibaca! Poin Anda bertambah +10.";
+    // 3. Show positive feedback
+    $alert = "Article finished! You earned 10 points.";
 } else {
-    $alert = "Anda sudah membaca artikel ini sebelumnya.";
+    $alert = "You have already read this article.";
 }</code></pre>
                 </div>
             </div>
@@ -304,7 +306,7 @@ if(mysqli_num_rows($cekRiwayat) == 0) {
     </div> 
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -314,9 +316,7 @@ if(mysqli_num_rows($cekRiwayat) == 0) {
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -325,7 +325,8 @@ if(mysqli_num_rows($cekRiwayat) == 0) {
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -335,7 +336,7 @@ if(mysqli_num_rows($cekRiwayat) == 0) {
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
                 updateIcon(newTheme);
             });
         }
@@ -351,7 +352,7 @@ if(mysqli_num_rows($cekRiwayat) == 0) {
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

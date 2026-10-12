@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gianagni Lofi Bot - Detail Project | Nandito Gianza</title>
+    <title>Gianagni Lofi Bot | Detail Project | Nandito Gianza</title>
+    <meta name="description" content="Gianagni Lofi Bot, a Discord radio bot project with Node.js and Discord.js.">
+    <link rel="canonical" href="https://gianagni.my.id/discord-bot.html">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <link rel="stylesheet" href="neo-styles.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -210,7 +212,7 @@
                 <div class="circle"></div>
                 <div class="circle"></div>
             </div>
-            <img src="images/projects/discord-bot.png" alt="Gianagni Bot Profile">
+            <img src="images/projects/discord-bot.webp" alt="Gianagni Bot Profile">
         </div>
 
         <div class="container" style="padding-top: 0; max-width: 1100px;">
@@ -219,37 +221,37 @@
                 <div class="card fade-in">
                     <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
                     <p class="text">
-                        Membuat bot musik Discord awalnya sederhana, hingga pembaruan keamanan terbaru Discord menerapkan <span class="highlight highlight-yellow">DAVE Protocol (End-to-End Encryption)</span> secara paksa pada Voice Channel. Update ini membuat 90% bot audio open-source terblokir dan menjadi "bisu".
+                        Building a Discord music bot used to be simple, until Discord rolled out the <span class="highlight highlight-yellow">DAVE Protocol (end-to-end encryption)</span> for voice channels. Bots without support for the protocol can no longer send audio and go silent.
                     </p>
                     <p class="text">
-                        Tantangannya adalah merekayasa ulang lapisan jaringan bot agar dapat menegosiasikan kunci enkripsi baru dengan server Discord, sekaligus mengkonversi stream radio Zeno FM (MP3) secara real-time menjadi format <code>Opus</code> yang aman.
+                        The challenge was updating the bot's voice layer so it can complete the DAVE encryption handshake with Discord, while converting a Zeno FM radio stream (MP3) to <code>Opus</code> in real time.
                     </p>
                 </div>
 
                 <div class="card highlight-box fade-in">
                     <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
                     <p class="text">
-                        Saya merombak arsitektur backend bot menggunakan <strong>Node.js</strong> dan ekosistem library <strong>@discordjs/voice</strong> terbaru.
+                        I reworked the bot's backend with <strong>Node.js</strong> and the latest <strong>@discordjs/voice</strong> library ecosystem.
                     </p>
                     <ul class="job-list" style="margin-top: 1rem;">
-                        <li><strong>DAVE Protocol Bypass:</strong> Menginjeksi library <code>@snazzah/davey</code> untuk melewati pemblokiran Voice Server.</li>
-                        <li><strong>Audio Transcoding:</strong> Menggunakan <code>ffmpeg-static</code> untuk konversi data media <em>on-the-fly</em>.</li>
-                        <li><strong>Memory Optimization:</strong> Mem-bypass caching metadata audio untuk mencegah kebocoran memori pada server saat bot berjalan 24/7.</li>
+                        <li><strong>DAVE E2EE support:</strong> Integrated <code>@snazzah/davey</code> as the DAVE protocol implementation, so the bot can join and send audio in encrypted voice channels.</li>
+                        <li><strong>Audio Transcoding:</strong> Uses <code>ffmpeg-static</code> to convert media <em>on the fly</em>.</li>
+                        <li><strong>Memory Optimization:</strong> Audio metadata is not cached, keeping memory usage stable while the bot runs 24/7.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="analysis-grid" style="margin-bottom: 2rem;">
                 <div class="card fade-in" style="grid-column: 1 / -1;">
-                    <h3 class="analysis-title"><i class="fas fa-shield-virus" style="color: var(--cyan);"></i> Security Bypass Architecture</h3>
+                    <h3 class="analysis-title"><i class="fas fa-shield-virus" style="color: var(--cyan);"></i> Voice Encryption Architecture</h3>
                     <p class="text">
-                        Untuk menembus pemblokiran audio dari server Discord, bot harus melakukan <em>handshake</em> kriptografi yang valid sebelum diizinkan mengirim paket suara melalui protokol UDP.
+                        Since DAVE was enforced, a bot must complete a valid cryptographic <em>handshake</em> before it is allowed to send voice packets over UDP.
                     </p>
                     <p class="text">
-                        <strong>Komponen Keamanan (Dependencies):</strong><br>
-                        1. <code>@snazzah/davey</code>: Menginisiasi dan menjaga sesi DAVE Protocol.<br>
-                        2. <code>tweetnacl</code>: Library kriptografi untuk memvalidasi <em>signature</em> kunci rahasia secara lokal.<br>
-                        3. <code>libsodium-wrappers</code>: Melakukan enkripsi End-to-End (E2EE) pada setiap pecahan paket audio sebelum dikirim.
+                        <strong>Security Components (Dependencies):</strong><br>
+                        1. <code>@snazzah/davey</code>: Starts and maintains the DAVE protocol session.<br>
+                        2. <code>tweetnacl</code>: Cryptography library used to validate key <em>signatures</em> locally.<br>
+                        3. <code>libsodium-wrappers</code>: Encrypts every audio packet for Discord's voice transport before it is sent.
                     </p>
                     
                     <div style="background: var(--yellow); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border); margin-top: 2rem;">
@@ -269,7 +271,7 @@
                     <i class="fab fa-node-js" style="font-size: 1.5rem;"></i> index.js (Backend Logic: Audio Resource Injection)
                 </div>
                 <div class="code-body">
-                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Berikut adalah core logic untuk pemutaran stream radio. Penggunaan <span class="highlight highlight-pink">StreamType.Arbitrary</span> sangat krusial agar sistem FFmpeg tidak mencoba mengunduh seluruh stasiun radio (infinite loop), melainkan langsung meneruskan paket datanya secara mentah.</p>
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">This is the core logic for playing the radio stream. Using <span class="highlight highlight-pink">StreamType.Arbitrary</span> is essential: it stops FFmpeg from trying to download the whole radio station (an endless stream) and has it pass the raw data through instead.</p>
 <pre><code>const connection = joinVoiceChannel({
     channelId: voiceChannel.id,
     guildId: interaction.guild.id,
@@ -278,8 +280,8 @@
 
 const player = createAudioPlayer();
 
-// StreamType.Arbitrary: Memaksa FFmpeg membaca stream radio internet (Zeno FM)
-// tanpa mendownload metadata-nya terlebih dahulu (Mencegah RAM overload).
+// StreamType.Arbitrary: makes FFmpeg read the internet radio stream (Zeno FM)
+// without downloading its metadata first (prevents RAM overload).
 const resource = createAudioResource('http://stream.zeno.fm/f3wvbbqmdg8uv', {
     inputType: StreamType.Arbitrary,
 });
@@ -289,7 +291,7 @@ connection.subscribe(player);
 
 // Event Listener Debugging State
 player.on(AudioPlayerStatus.Playing, () => {
-    console.log('▶️ Stream DAVE Protocol Active: Musik diputar di Discord!');
+    console.log('DAVE stream active: music is playing on Discord.');
 });</code></pre>
                 </div>
             </div>
@@ -307,7 +309,7 @@ player.on(AudioPlayerStatus.Playing, () => {
     </div> 
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -317,9 +319,7 @@ player.on(AudioPlayerStatus.Playing, () => {
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -328,7 +328,8 @@ player.on(AudioPlayerStatus.Playing, () => {
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -338,7 +339,7 @@ player.on(AudioPlayerStatus.Playing, () => {
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
                 updateIcon(newTheme);
             });
         }
@@ -354,7 +355,7 @@ player.on(AudioPlayerStatus.Playing, () => {
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

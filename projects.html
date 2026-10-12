@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Nandito Gianza — Full-Stack Developer</title>
+    <title>Projects | Nandito Gianza | Full-Stack Developer</title>
+    <meta name="description" content="Portfolio projects by Nandito Gianza, including Flowprint, Lahena, NG Market, DiscloseKit, internal work, and earlier web applications.">
+    <link rel="canonical" href="https://gianagni.my.id/projects.html">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="neo-styles.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -26,6 +28,38 @@
             margin: 0 auto;
         }
 
+        .projects-group {
+            grid-column: 1 / -1;
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 1rem 0 -1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px dashed var(--border);
+        }
+
+        .card-flag {
+            align-self: flex-start;
+            margin-bottom: 0.75rem;
+            padding: 0.15rem 0.55rem;
+            border: 2px solid var(--border);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #000;
+        }
+        .flag-award { background: var(--yellow); }
+        .flag-feat { background: var(--cyan); }
+        .flag-dev { background: var(--pink); }
+
+        @media (max-width: 420px) {
+            .projects-grid-modern {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
         .project-card {
             background: var(--white);
             border: var(--border-width) solid var(--border);
@@ -37,7 +71,7 @@
             position: relative;
         }
 
-        /* Efek hover brutalisme: ditekan ke dalam */
+        /* Brutalist hover: pressed in */
         .project-card:hover {
             transform: translate(6px, 6px);
             box-shadow: 2px 2px 0 var(--border);
@@ -67,7 +101,7 @@
             margin-bottom: 1.5rem;
         }
 
-        /* Menyesuaikan tombol agar persis dengan Explore All Projects */
+        /* Match the Explore All Projects button */
         .btn-view {
             display: inline-flex;
             justify-content: center;
@@ -153,50 +187,105 @@
 
         <section class="projects-header fade-in">
             <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">ARCHIVE & WORKS</h1>
-            <p style="font-family: 'Space Mono', monospace; font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Kumpulan hasil eksplorasi sistem dan web development yang pernah aku kerjakan.</p>
+            <p style="font-family: 'Space Mono', monospace; font-size: 1.15rem; max-width: 600px; margin: 0 auto;">Selected products, developer tools, internal work, experiments, and earlier projects.</p>
         </section>
 
         <div class="container" style="padding-top: 0;">
             <div class="projects-grid-modern">
-                
+                <h2 class="projects-group">Featured</h2>
                 <div class="project-card fade-in">
+                    <span class="card-flag flag-feat">Featured · Experimental Alpha</span>
+                    <h3>Flowprint</h3>
+                    <div class="tech-tags"><span class="tag" style="background: var(--cyan);">TypeScript</span><span class="tag" style="background: var(--yellow);">CLI / Static Analysis</span></div>
+                    <p class="project-desc">A local-first CLI for orienting developers in unfamiliar JavaScript and TypeScript repositories, especially Next.js App Router. Maps apps, routes, starting points, and confidence levels. Currently experimental.</p>
+                    <a href="https://github.com/gianagni/flowprint" target="_blank" rel="noopener noreferrer" class="btn-view">Source &amp; Documentation <i class="fab fa-github" aria-hidden="true"></i></a>
+                </div>
+
+
+                <div class="project-card fade-in">
+                    <span class="card-flag flag-award">Featured · 2nd Place, Creative Idea</span>
+                    <h3>Lahena</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-layer-group"></i> Next.js</span>
+                        <span class="tag" style="background: var(--yellow);"><i class="fas fa-database"></i> Supabase</span>
+                    </div>
+                    <p class="project-desc">Internship readiness platform. A deterministic rule engine maps skill gaps against standards taken from 27 real internship postings, then turns each gap into a mission that needs real evidence.</p>
+                    <a href="https://lahena.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-view">Visit Website <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <span class="card-flag flag-feat">Featured</span>
+                    <h3>NG Market</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-layer-group"></i> Next.js</span>
+                        <span class="tag" style="background: var(--yellow);"><i class="fas fa-database"></i> Supabase</span>
+                    </div>
+                    <p class="project-desc">Digital product marketplace built with Next.js and Supabase. RLS policies for per-user data access, a credential stock pool allocated after admin verification, and rate limiting on Vercel.</p>
+                    <a href="https://market.gianagni.my.id/" target="_blank" rel="noopener noreferrer" class="btn-view">Visit Website <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <span class="card-flag flag-feat">Featured</span>
                     <h3>DiscloseKit</h3>
                     <div class="tech-tags">
                         <span class="tag" style="background: var(--cyan);"><i class="fas fa-bolt"></i> Svelte</span>
                         <span class="tag" style="background: var(--yellow);"><i class="fas fa-file-pdf"></i> PDF Export</span>
                         <span class="tag" style="background: var(--pink);"><i class="fas fa-shield-alt"></i> Security</span>
                     </div>
-                    <p class="project-desc">Toolkit berbasis Svelte untuk menyusun laporan responsible disclosure vulnerability secara terstruktur dan etis. Fitur report builder, ethical guardrail checklist, dan export PDF yang diproses lokal di browser tanpa database.</p>
+                    <p class="project-desc">Responsible disclosure report builder: templates per vulnerability category, an ethics checklist required before export, and PDF export through the browser's print dialog without sending data to a server.</p>
                     <a href="https://disclosekit.gianagni.my.id/" target="_blank" rel="noopener noreferrer" class="btn-view">Visit Website <i class="fas fa-arrow-up-right-from-square"></i></a>
                 </div>
 
+                <h2 class="projects-group">Professional / Internal Work</h2>
+                <div class="project-card fade-in">
+                    <span class="card-flag flag-dev">Internal · In Development</span>
+                    <h3>SPN Meeting Room Booking System</h3>
+                    <div class="tech-tags"><span class="tag" style="background: var(--cyan);">Booking Workflow</span><span class="tag" style="background: var(--yellow);">Authorization</span></div>
+                    <p class="project-desc">An internal meeting room application built during my internship at PT Solusi Pelayaran Nusantara. Focused on room availability, booking workflows, administration, and booking history. No private company source or data is published.</p>
+                    <a href="index.html#experience" class="btn-view">Work Context <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+
+                <h2 class="projects-group">In Development</h2>
+                <div class="project-card fade-in">
+                    <span class="card-flag flag-dev">In Development</span>
+                    <h3>Lummix</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--accent);"><i class="fas fa-mobile-alt"></i> Expo</span>
+                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-database"></i> PostgreSQL</span>
+                    </div>
+                    <p class="project-desc">Mobile expense tracker. Current focus is the database layer: idempotent writes so a retried request never creates a duplicate transaction.</p>
+                    <a href="lummix.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="project-card fade-in">
+                    <span class="card-flag flag-dev">In Development</span>
+                    <h3>Seikarsa</h3>
+                    <div class="tech-tags">
+                        <span class="tag" style="background: var(--pink);"><i class="fas fa-layer-group"></i> Next.js</span>
+                        <span class="tag" style="background: var(--yellow);"><i class="fas fa-database"></i> Supabase</span>
+                    </div>
+                    <p class="project-desc">Digital wedding invitation platform with a personal link for every guest and RSVP totals per event. Still at the foundation stage.</p>
+                    <a href="seikarsa.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <h2 class="projects-group">Archive</h2>
                 <div class="project-card fade-in">
                     <h3>Gianagni Lofi Bot</h3>
                     <div class="tech-tags">
                         <span class="tag" style="background: var(--yellow);"><i class="fab fa-node-js"></i> Node.js</span>
                         <span class="tag" style="background: var(--white);"><i class="fab fa-discord"></i> Discord.js</span>
                     </div>
-                    <p class="project-desc">Discord bot pemutar musik Lo-Fi 24/7 dengan arsitektur stream audio khusus untuk mencegah memory leak pada server.</p>
+                    <p class="project-desc">24/7 Lo-Fi radio bot for Discord with DAVE voice encryption support and real-time audio transcoding to Opus.</p>
                     <a href="discord-bot.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="project-card fade-in">
-                    <h3>NG Market</h3>
-                    <div class="tech-tags">
-                        <span class="tag" style="background: var(--cyan);"><i class="fas fa-layer-group"></i> Next.js</span>
-                        <span class="tag" style="background: var(--yellow);"><i class="fas fa-database"></i> Supabase</span>
-                    </div>
-                    <p class="project-desc">Platform jual-beli akun streaming premium dengan Next.js dan Supabase. Implementasi RLS policy untuk kontrol akses data, arsitektur stock pool kredensial, dan rate limiting pada environment serverless (Vercel).</p>
-                    <a href="https://market.gianagni.my.id/" target="_blank" rel="noopener noreferrer" class="btn-view">Visit Website <i class="fas fa-arrow-up-right-from-square"></i></a>
-                </div>
-
-                <div class="project-card fade-in">
-                    <h3>Sistem Kas UMKM</h3>
+                    <h3>SME Cash Management</h3>
                     <div class="tech-tags">
                         <span class="tag" style="background: var(--accent);"><i class="fas fa-fire"></i> CI4</span>
                         <span class="tag" style="background: var(--cyan);"><i class="fas fa-bolt"></i> AJAX</span>
                     </div>
-                    <p class="project-desc">Aplikasi web pencatatan transaksi keuangan end-to-end dengan implementasi database ACID untuk akurasi data.</p>
+                    <p class="project-desc">End-to-end web app for recording financial transactions, using ACID database transactions to keep the data accurate.</p>
                     <a href="kas-manajemen.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
 
@@ -206,17 +295,17 @@
                         <span class="tag" style="background: var(--cyan);"><i class="fas fa-store"></i> Marketplace</span>
                         <span class="tag" style="background: var(--white);"><i class="fab fa-php"></i> PHP</span>
                     </div>
-                    <p class="project-desc">Platform jual-beli akun digital dengan penanganan logika pengurangan stok otomatis dan gateway pembayaran.</p>
+                    <p class="project-desc">Marketplace for digital accounts with automatic stock deduction logic and a payment gateway.</p>
                     <a href="fanamarket.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="project-card fade-in">
-                    <h3>Plotting Akademik</h3>
+                    <h3>Academic Scheduling</h3>
                     <div class="tech-tags">
                         <span class="tag" style="background: var(--pink);"><i class="fab fa-php"></i> Native</span>
                         <span class="tag" style="background: var(--white);"><i class="fas fa-cogs"></i> Logic</span>
                     </div>
-                    <p class="project-desc">Sistem manajemen jadwal dengan validasi multi-user dan pengecekan otomatis untuk dosen atau ruang yang bentrok.</p>
+                    <p class="project-desc">Schedule management system with multi-user validation and automatic checks for lecturer or room conflicts.</p>
                     <a href="plotting.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
 
@@ -226,17 +315,17 @@
                         <span class="tag" style="background: var(--yellow);"><i class="fas fa-coffee"></i> Web App</span>
                         <span class="tag" style="background: var(--cyan);"><i class="fas fa-palette"></i> UI/UX</span>
                     </div>
-                    <p class="project-desc">Sistem pemesanan coffee shop yang berfokus pada pengalaman pengguna (UI) dan alur logika kasir yang efisien.</p>
+                    <p class="project-desc">Coffee shop ordering system focused on the user experience and an efficient cashier flow.</p>
                     <a href="brewbuddy.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
 
                 <div class="project-card fade-in">
-                    <h3>Portal Berita Gamified</h3>
+                    <h3>Gamified News Portal</h3>
                     <div class="tech-tags">
                         <span class="tag" style="background: var(--accent);"><i class="fas fa-gamepad"></i> Gamification</span>
                         <span class="tag" style="background: var(--pink);"><i class="fas fa-database"></i> MySQL</span>
                     </div>
-                    <p class="project-desc">Portal berita interaktif dimana user mendapatkan poin setiap kali selesai membaca artikel untuk meningkatkan engagement.</p>
+                    <p class="project-desc">Interactive news portal where users earn points for every article they finish reading, to increase engagement.</p>
                     <a href="portal-berita.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
 
@@ -246,17 +335,16 @@
                         <span class="tag" style="background: var(--cyan);"><i class="fas fa-sitemap"></i> System</span>
                         <span class="tag" style="background: var(--yellow);"><i class="fas fa-calculator"></i> Logic</span>
                     </div>
-                    <p class="project-desc">Sistem internal untuk manajemen project freelance, menghitung progress pembayaran, dan kalkulasi tagihan klien.</p>
+                    <p class="project-desc">Internal system for managing freelance projects, tracking payment progress, and calculating client invoices.</p>
                     <a href="freelance.html" class="btn-view">Detail Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
-
             </div>
         </div>
 
         <footer class="footer">
             <div class="footer-compact">
                 <div class="footer-bottom-compact" style="justify-content: center; padding-top: 0; border-top: none;">
-                    <span style="font-size: 0.95rem;">© 2026 Nandito Gianza — Full-Stack Developer. All Systems Operational.</span>
+                    <span style="font-size: 0.95rem;">© 2026 Nandito Gianza. Full-Stack Developer. All Systems Operational.</span>
                 </div>
             </div>
         </footer>
@@ -264,7 +352,7 @@
     </div> 
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -274,9 +362,7 @@
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -285,7 +371,8 @@
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Browser storage may be blocked on local files. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -295,7 +382,7 @@
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ } } catch (_) { /* Theme still works for this session. */ }
                 updateIcon(newTheme);
             });
         }
@@ -311,7 +398,7 @@
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

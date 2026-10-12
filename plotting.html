@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algoritma Plotting Jadwal - Detail Project | Nandito Gianza</title>
+    <title>Algoritma Plotting Jadwal | Detail Project | Nandito Gianza</title>
     
-    <link rel="icon" type="image/png" href="images/icons/logo.png">
+    <meta name="description" content="Academic Scheduling project by Nandito Gianza, with conflict checking for lecturers and rooms.">
+    <link rel="canonical" href="https://gianagni.my.id/plotting.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <link rel="stylesheet" href="neo-styles.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,7 +23,7 @@
 
         .category-badge {
             display: inline-block;
-            background: var(--pink); /* Warna Pink untuk Complex Algorithm */
+            background: var(--pink); /* Pink for the algorithm project */
             color: var(--text);
             border: 3px solid var(--border);
             padding: 8px 20px;
@@ -101,7 +103,7 @@
         }
 
         .code-header {
-            background: var(--pink); /* Warna pink untuk box code */
+            background: var(--pink); /* Pink for the code box */
             padding: 1rem 1.5rem;
             border-bottom: 4px solid var(--border);
             font-family: 'Space Mono', monospace;
@@ -195,7 +197,7 @@
 
         <section class="project-detail-header fade-in">
             <div class="category-badge">Complex Algorithm</div>
-            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Algoritma Penjadwalan.</h1>
+            <h1 class="section-title-center" style="display: inline-block; font-size: 3.5rem; margin-bottom: 1.5rem; padding: 1rem 3rem;">Scheduling Algorithm.</h1>
             
             <div class="tech-tags" style="justify-content: center; margin-bottom: 2rem;">
                 <span class="tag" style="background: var(--yellow);"><i class="fab fa-php"></i> PHP Native</span>
@@ -211,7 +213,7 @@
                 <div class="circle"></div>
                 <div class="circle"></div>
             </div>
-            <img src="images/projects/plotting.jpg" alt="Sistem Penjadwalan Minara College">
+            <img src="images/projects/plotting.jpg" alt="Minara College scheduling system">
         </div>
 
         <div class="container" style="padding-top: 0; max-width: 1100px;">
@@ -220,22 +222,22 @@
                 <div class="card fade-in">
                     <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
                     <p class="text">
-                        <strong>Studi Kasus: Minara College.</strong> Manajemen jadwal perkuliahan secara manual sering kali mengakibatkan bentrok jadwal (seperti Dosen yang harus mengajar di dua tempat, atau Ruangan yang terpakai ganda) dan ketimpangan beban SKS antar dosen.
+                        <strong>Case Study: Minara College.</strong> Managing class schedules by hand often leads to conflicts (a lecturer booked in two places at once, or a room used twice) and uneven teaching loads (credit hours) between lecturers.
                     </p>
                     <p class="text">
-                        Dibutuhkan sebuah sistem yang dapat memvalidasi ribuan kemungkinan kombinasi antara <strong>Dosen</strong>, <strong>Mata Kuliah</strong>, <strong>Ruang</strong>, dan <strong>Waktu</strong> secara <em>real-time</em> sesaat sebelum data disimpan ke <em>database</em>.
+                        The college needed a system that validates the possible combinations of <strong>lecturer</strong>, <strong>course</strong>, <strong>room</strong>, and <strong>time</strong> in <em>real time</em>, right before the data is saved.
                     </p>
                 </div>
 
                 <div class="card highlight-box fade-in" style="background: var(--yellow);">
                     <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
                     <p class="text">
-                        Saya membangun sistem ini berbasis <span class="highlight highlight-cyan">PHP Native</span> murni untuk mengejar performa maksimal dalam <em>query</em> logika yang berat tanpa terhambat beban dari *framework*.
+                        I built the system in plain <span class="highlight highlight-cyan">native PHP</span> to keep the heavy query logic fast without framework overhead.
                     </p>
                     <ul class="job-list" style="margin-top: 1rem;">
-                        <li><strong>Double-Constraint Check:</strong> Algoritma pengecekan ganda secara paralel untuk tabrakan Ruang & Waktu serta tabrakan Dosen & Waktu.</li>
-                        <li><strong>SKS Monitoring:</strong> Kalkulasi otomatis di tabel untuk mencegah <em>overload</em> beban mengajar SKS per dosen.</li>
-                        <li><strong>Print Friendly:</strong> Fitur cetak laporan PDF langsung untuk jadwal kelas.</li>
+                        <li><strong>Double-Constraint Check:</strong> Checks both room and time conflicts and lecturer and time conflicts.</li>
+                        <li><strong>Credit Load Monitoring:</strong> Automatic calculation that prevents overloading a lecturer's teaching credit hours.</li>
+                        <li><strong>Print Friendly:</strong> Class schedules can be printed straight to PDF.</li>
                     </ul>
                 </div>
             </div>
@@ -244,21 +246,21 @@
                 <div class="card fade-in" style="grid-column: 1 / -1;">
                     <h3 class="analysis-title"><i class="fas fa-sitemap" style="color: var(--cyan);"></i> Relational Logic Architecture</h3>
                     <p class="text">
-                        Kekuatan utama sistem ini ada pada relasi tabel <code>ploting_mengajar</code> yang bertindak sebagai pusat (<em>Bridge Table</em>) untuk merajut entitas lain di dalam <em>database</em>.
+                        The core of the system is the <code>ploting_mengajar</code> (teaching assignment) table, which acts as a <em>bridge table</em> connecting the other entities.
                     </p>
                     
                     <ul class="job-list" style="margin: 1.5rem 0 2rem 0;">
-                        <li><code>pengampu</code>: Menghubungkan Dosen -> Mata Kuliah -> Kelas -> Tahun Akademik.</li>
-                        <li><code>jadwal</code>: Menyimpan ketersediaan slot Hari, Jam, & ID Ruang.</li>
-                        <li><code>ploting_mengajar</code>: Menyatukan ID Pengampu dan ID Jadwal secara definitif dan tervalidasi.</li>
+                        <li><code>pengampu</code> (course lecturer): links lecturer, course, class, and academic year.</li>
+                        <li><code>jadwal</code> (schedule): stores available day, time, and room slots.</li>
+                        <li><code>ploting_mengajar</code>: joins a course lecturer to a schedule slot after validation.</li>
                     </ul>
                     
                     <div style="background: var(--accent); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border);">
-                        <h4 style="font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;"><i class="fas fa-random" style="margin-right: 8px;"></i> Logic Validasi Bentrok:</h4>
-                        <div class="logic-step">IF (Ruang = 'Lab Kom 1' AND Waktu = '08:00-10:00') EXISTS</div>
+                        <h4 style="font-family: 'Space Mono', monospace; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase;"><i class="fas fa-random" style="margin-right: 8px;"></i> Conflict Validation Logic:</h4>
+                        <div class="logic-step">IF (Room = 'Lab Kom 1' AND Time = '08:00-10:00') EXISTS</div>
                         <div class="logic-step">OR</div>
-                        <div class="logic-step">IF (Dosen = 'Nasril' AND Waktu = '08:00-10:00') EXISTS</div>
-                        <div class="logic-step" style="color: var(--text); background: var(--pink); border: 2px solid var(--border); padding: 0.2rem 0.5rem; display: inline-block; margin-bottom: 10px;">=> REJECT INPUT (BENTROK)</div>
+                        <div class="logic-step">IF (Lecturer = 'Nasril' AND Time = '08:00-10:00') EXISTS</div>
+                        <div class="logic-step" style="color: var(--text); background: var(--pink); border: 2px solid var(--border); padding: 0.2rem 0.5rem; display: inline-block; margin-bottom: 10px;">=> REJECT INPUT (CONFLICT)</div>
                         <div class="logic-step">ELSE</div>
                         <div class="logic-step" style="color: var(--bg); background: var(--white); border: 2px solid var(--border); padding: 0.2rem 0.5rem; display: inline-block;">=> SAVE DATA to ploting_mengajar</div>
                     </div>
@@ -270,11 +272,11 @@
                     <i class="fas fa-code" style="font-size: 1.5rem;"></i> ConflictCheck.php (The Anti-Conflict Algorithm)
                 </div>
                 <div class="code-body">
-                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Berikut adalah potongan kode PHP Native yang saya gunakan untuk memvalidasi irisan waktu (<span class="highlight highlight-pink">Time Overlap</span>) agar tidak ada jadwal yang bertabrakan baik secara ruangan maupun jadwal dosen.</p>
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">This is the native PHP code I used to check for <span class="highlight highlight-pink">time overlap</span>, so no schedule clashes on either the room or the lecturer.</p>
 <pre><code>function cekBentrok($hari, $jam_mulai, $jam_selesai, $id_ruang, $id_dosen) {
     global $koneksi;
 
-    // 1. Cek Bentrok Ruangan (Apakah ruangan sedang dipakai orang lain?)
+    // 1. Room conflict check (is the room already in use?)
     $queryRuang = "SELECT * FROM jadwal 
                    JOIN ploting_mengajar ON jadwal.id_jadwal = ploting_mengajar.id_jadwal
                    WHERE hari = '$hari' 
@@ -286,13 +288,13 @@
 
     $cek1 = mysqli_num_rows(mysqli_query($koneksi, $queryRuang));
     
-    // Jika data ditemukan (cek1 > 0), berarti ada irisan waktu
-    if ($cek1 > 0) return "Error: Ruangan Sedang Terpakai pada Jam Tersebut!";
+    // Any match (cek1 > 0) means the times overlap
+    if ($cek1 > 0) return "Error: The room is already in use at that time!";
     
-    // 2. Cek Bentrok Dosen (Logic query serupa diterapkan untuk mengecek tabel pengampu)
+    // 2. Lecturer conflict check (same query logic against the pengampu table)
     // ...
     
-    return "OK"; // Lolos validasi, data aman untuk di-insert ke database
+    return "OK"; // Passed validation, safe to insert
 }</code></pre>
                 </div>
             </div>
@@ -310,7 +312,7 @@
     </div> 
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -320,9 +322,7 @@
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -331,7 +331,8 @@
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -341,7 +342,7 @@
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
                 updateIcon(newTheme);
             });
         }
@@ -357,7 +358,7 @@
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

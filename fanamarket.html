@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fana Market - Detail Project | Nandito Gianza</title>
+    <title>Fana Market | Detail Project | Nandito Gianza</title>
+    <meta name="description" content="Fana Market project by Nandito Gianza, an earlier digital product marketplace built with PHP.">
+    <link rel="canonical" href="https://gianagni.my.id/fanamarket.html">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <link rel="stylesheet" href="neo-styles.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -20,7 +22,7 @@
 
         .category-badge {
             display: inline-block;
-            background: var(--yellow); /* Warna Kuning untuk E-Commerce/Marketplace */
+            background: var(--yellow); /* Yellow for e-commerce/marketplace */
             color: var(--text);
             border: 3px solid var(--border);
             padding: 8px 20px;
@@ -100,7 +102,7 @@
         }
 
         .code-header {
-            background: var(--accent); /* Warna Hijau/Accent untuk header kode */
+            background: var(--accent); /* Green/accent for the code header */
             padding: 1rem 1.5rem;
             border-bottom: 4px solid var(--border);
             font-family: 'Space Mono', monospace;
@@ -224,22 +226,22 @@
                 <div class="card fade-in">
                     <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
                     <p class="text">
-                        <strong>Problem Statement:</strong> Banyak <em>marketplace</em> akun digital (seperti Netflix/Spotify <em>sharing</em>) mengalami kendala dalam verifikasi pembayaran manual yang lambat dan berisiko tinggi terjadi penipuan stok (akun terjual dua kali pada saat bersamaan).
+                        <strong>Problem Statement:</strong> Many digital account marketplaces rely on slow manual payment verification and carry a high risk of stock errors, such as the same account being sold twice at the same moment.
                     </p>
                     <p class="text">
-                        Pengguna membutuhkan sistem yang dapat memproses pesanan secara instan 24/7 dan memastikan secara logis bahwa satu akun/kredensial hanya bisa dibeli oleh satu <em>user</em> dalam satu waktu.
+                        Users needed a system that processes orders instantly, 24/7, and guarantees that each account or credential can only be bought by one user at a time.
                     </p>
                 </div>
 
                 <div class="card highlight-box fade-in" style="background: var(--cyan);">
                     <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
                     <p class="text">
-                        Saya membangun sistem berbasis <strong>CodeIgniter 4</strong> dengan arsitektur MVC yang sangat ketat. Fokus utama dari <em>backend</em> ini adalah pada logika <span class="highlight highlight-yellow">Transaction Locking</span> di tingkat <em>database</em> untuk mencegah <em>Race Condition</em>.
+                        I built the system on <strong>CodeIgniter 4</strong> with a strict MVC structure. The backend focuses on <span class="highlight highlight-yellow">transaction locking</span> at the database level to prevent race conditions.
                     </p>
                     <ul class="job-list" style="margin-top: 1rem;">
-                        <li>Integrasi API Payment Gateway (Tripay / Midtrans).</li>
-                        <li>Sistem validasi dan pengiriman stok otomatis (Auto-delivery).</li>
-                        <li>Dashboard Admin eksklusif untuk rekapitulasi pendapatan <em>real-time</em>.</li>
+                        <li>Payment gateway API integration (Tripay / Midtrans).</li>
+                        <li>Automatic stock validation and delivery (auto-delivery).</li>
+                        <li>Admin dashboard with <em>real-time</em> revenue summaries.</li>
                     </ul>
                 </div>
             </div>
@@ -250,17 +252,11 @@
                     <div class="analysis-grid" style="margin-bottom: 0; gap: 2rem;">
                         <div>
                             <p class="text">
-                                Struktur <em>database</em> dirancang menggunakan kaidah <strong>Normalisasi Tingkat 3 (3NF)</strong> untuk meminimalisir redundansi data. Tabel <code>transactions</code> dipisahkan secara logis dengan <code>transaction_details</code> untuk menangani skenario pembelian <em>multi-item</em> dalam satu keranjang belanja.
+                                The database follows <strong>third normal form (3NF)</strong> to minimize redundant data. The <code>transactions</code> table is separated from <code>transaction_details</code> to support multi-item purchases in a single cart.
                             </p>
                             <p class="text">
-                                Salah satu penyelesaian masalah terbesar dalam proyek ini adalah optimalisasi *query* performa. Saya menggunakan teknik <strong>Indexing</strong> pada kolom pencarian yang sering dipakai seperti <code>status</code> dan <code>user_id</code>, yang terbukti mempercepat proses pembacaan *query* laporan hingga 40%.
+                                One of the biggest problems solved in this project was query performance. I added <strong>indexes</strong> on frequently filtered columns such as <code>status</code> and <code>user_id</code>, which sped up report queries by up to 40%.
                             </p>
-                        </div>
-                        
-                        <div class="placeholder-box">
-                            <i class="fas fa-project-diagram"></i>
-                            <span>[ ERD DIAGRAM PLACEHOLDER ]</span>
-                            <small>assets/images/projects/fana-erd.jpg</small>
                         </div>
                     </div>
                 </div>
@@ -271,13 +267,13 @@
                     <i class="fas fa-code" style="font-size: 1.5rem;"></i> PaymentCallbackController.php (Key Backend Logic)
                 </div>
                 <div class="code-body">
-                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Berikut adalah potongan logika <em>Controller</em> untuk menangani proses <em>Callback (Webhook)</em> dari Payment Gateway. Hal ini memastikan status pesanan berubah secara otomatis ketika pembayaran masuk, tanpa perlu intervensi manual dari admin.</p>
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">Below is the controller logic that handles the payment gateway <em>callback (webhook)</em>. It makes sure the order status updates automatically as soon as a payment arrives, with no manual admin step.</p>
 <pre><code>public function handleCallback() {
     $json = $this->request->getJSON();
-    // Validasi Signature Keamanan (HMAC SHA256)
+    // Validate the security signature (HMAC SHA256)
     $signatureKey = hash_hmac('sha256', $json->merchant_ref . $json->amount, $this->privateKey);
 
-    // 1. Security Check: Cegah spoofing request
+    // 1. Security check: reject spoofed requests
     if ($signatureKey !== $json->signature) {
         return $this->response->setStatusCode(403)->setJSON(['message' => 'Invalid Signature']);
     }
@@ -286,10 +282,10 @@
     $this->db->transStart();
     try {
         if ($json->status == 'PAID') {
-            // Update Status Transaksi menjadi Berhasil
+            // Mark the transaction as successful
             $this->transactionModel->updateStatus($json->merchant_ref, 'SUCCESS');
             
-            // Logic Pengurangan Stok Otomatis Berdasarkan Item Terjual
+            // Deduct stock automatically for the items sold
             $this->productModel->decreaseStock($json->items); 
         }
         $this->db->transComplete();
@@ -314,7 +310,7 @@
     </div> 
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -324,9 +320,7 @@
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -335,7 +329,8 @@
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -345,7 +340,7 @@
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
                 updateIcon(newTheme);
             });
         }
@@ -361,7 +356,7 @@
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelance OS - Detail Project | Nandito Gianza</title>
+    <title>Freelance OS | Detail Project | Nandito Gianza</title>
     
-    <link rel="icon" type="image/png" href="images/icons/logo.png">
+    <meta name="description" content="Freelance OS project by Nandito Gianza, a dashboard concept for tracking clients, work progress, and invoices.">
+    <link rel="canonical" href="https://gianagni.my.id/freelance.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <link rel="stylesheet" href="neo-styles.css"> 
     
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,7 +23,7 @@
 
         .category-badge {
             display: inline-block;
-            background: var(--cyan); /* Warna Cyan untuk sistem manajemen/dashboard */
+            background: var(--cyan); /* Cyan for management/dashboard systems */
             color: var(--text);
             border: 3px solid var(--border);
             padding: 8px 20px;
@@ -101,7 +103,7 @@
         }
 
         .code-header {
-            background: var(--accent); /* Warna accent untuk box code */
+            background: var(--accent); /* Accent color for the code box */
             padding: 1rem 1.5rem;
             border-bottom: 4px solid var(--border);
             font-family: 'Space Mono', monospace;
@@ -220,22 +222,22 @@
                 <div class="card fade-in">
                     <h3 class="analysis-title"><i class="fas fa-exclamation-triangle" style="color: var(--pink);"></i> The Challenge</h3>
                     <p class="text">
-                        <strong>Problem Statement:</strong> Freelancer sering kesulitan melacak progress proyek yang berjalan paralel, invoice yang belum dibayar, dan tenggat waktu (<em>deadline</em>) karena data tersebar di berbagai platform (Excel, WhatsApp, Email).
+                        <strong>Problem Statement:</strong> Freelancers often struggle to track parallel projects, unpaid invoices, and deadlines because the data is scattered across Excel, WhatsApp, and email.
                     </p>
                     <p class="text">
-                        Dibutuhkan sebuah sistem terpusat yang bisa mengelola Database Klien (<code>clients</code>), Progress Proyek (<code>projects</code>), dan Riwayat Pembayaran (<code>payments</code>) dalam satu antarmuka dashboard yang efisien.
+                        They need one central system that manages clients (<code>clients</code>), project progress (<code>projects</code>), and payment history (<code>payments</code>) in a single dashboard.
                     </p>
                 </div>
 
                 <div class="card highlight-box fade-in" style="background: var(--yellow);">
                     <h3 class="analysis-title"><i class="fas fa-lightbulb" style="color: var(--bg);"></i> Technical Solution</h3>
                     <p class="text">
-                        Saya membangun <strong>Freelance OS</strong> menggunakan <strong>CodeIgniter 4</strong> dengan arsitektur MVC. Fokus utama adalah efisiensi <em>query</em> dan struktur data yang terintegrasi penuh.
+                        I built <strong>Freelance OS</strong> with <strong>CodeIgniter 4</strong> using MVC. The main focus was efficient queries and a fully connected data structure.
                     </p>
                     <ul class="job-list" style="margin-top: 1rem;">
-                        <li><strong>Relational Integrity:</strong> Penerapan <em>Foreign Key Constraint</em> (<code>ON DELETE CASCADE</code>) agar data klien dan proyek selalu sinkron.</li>
-                        <li><strong>Status Workflow:</strong> Manajemen status proyek (<code>Pending</code> -> <code>On Progress</code> -> <code>Selesai</code>) menggunakan tipe data ENUM di <em>database</em>.</li>
-                        <li><strong>Financial Recap:</strong> Kalkulasi otomatis sisa tagihan berdasarkan nilai proyek dikurangi total pembayaran masuk.</li>
+                        <li><strong>Relational Integrity:</strong> <em>Foreign key constraints</em> (<code>ON DELETE CASCADE</code>) keep client and project data in sync.</li>
+                        <li><strong>Status Workflow:</strong> Project status (<code>Pending</code>, <code>On Progress</code>, <code>Selesai</code>) is stored as an ENUM in the database.</li>
+                        <li><strong>Financial Recap:</strong> The remaining balance is calculated automatically as project value minus total payments received.</li>
                     </ul>
                 </div>
             </div>
@@ -244,13 +246,13 @@
                 <div class="card fade-in" style="grid-column: 1 / -1;">
                     <h3 class="analysis-title"><i class="fas fa-database" style="color: var(--cyan);"></i> Database Relations (CRM Core)</h3>
                     <p class="text">
-                        Berdasarkan struktur <code>db_freelance.sql</code>, arsitektur <em>database</em> dirancang untuk skalabilitas CRM (<em>Customer Relationship Management</em>).
+                        Based on the <code>db_freelance.sql</code> structure, the database is designed around CRM (<em>customer relationship management</em>) needs.
                     </p>
                     
                     <ul class="job-list" style="margin: 1.5rem 0 2rem 0;">
-                        <li><code>clients</code>: Menyimpan data master klien (Nama, Instansi, WA, Email).</li>
-                        <li><code>projects</code>: Terhubung langsung ke Client ID. Memiliki atribut esensial seperti <code>nilai_proyek</code> dan <code>tanggal_deadline</code>.</li>
-                        <li><code>payments</code>: Terhubung ke Project ID. Mencatat riwayat cicilan pembayaran (<code>jumlah_bayar</code>) secara bertahap.</li>
+                        <li><code>clients</code>: Master client data (name, organization, WhatsApp, email).</li>
+                        <li><code>projects</code>: Linked directly to a client ID, with key fields such as <code>nilai_proyek</code> (project value) and <code>tanggal_deadline</code> (deadline).</li>
+                        <li><code>payments</code>: Linked to a project ID. Records each installment payment (<code>jumlah_bayar</code>) over time.</li>
                     </ul>
                     
                     <div style="background: var(--pink); padding: 1.5rem; border: 3px solid var(--border); box-shadow: 4px 4px 0 var(--border);">
@@ -273,19 +275,19 @@
                     <i class="fas fa-code" style="font-size: 1.5rem;"></i> ProjectModel.php (Financial Health Calculation)
                 </div>
                 <div class="code-body">
-                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Space Grotesk', sans-serif;">Berikut adalah logika <em>Backend</em> (CI4 Model) yang saya kembangkan untuk menghitung kesehatan finansial per proyek secara <em>real-time</em> (Total Nilai Proyek vs Total Dana yang sudah Terbayar).</p>
+                    <p class="text" style="margin-bottom: 1.5rem; font-family: 'Inter', sans-serif;">This is the backend logic (a CI4 model) I wrote to calculate each project's financial health in <em>real time</em>: total project value versus the amount already paid.</p>
 <pre><code>public function getProjectFinancials($projectId) {
-    // 1. Ambil Data Proyek (CI4 Model)
+    // 1. Load the project (CI4 model)
     $project = $this->find($projectId);
     
-    // 2. Hitung Total Pembayaran Masuk (Menggunakan Query Builder)
+    // 2. Sum all payments received (Query Builder)
     $db = \Config\Database::connect();
     $totalPaid = $db->table('payments')
                     ->where('project_id', $projectId)
                     ->selectSum('jumlah_bayar')
                     ->get()->getRow()->jumlah_bayar;
 
-    // 3. Kalkulasi Sisa Tagihan & Progress Pembayaran (Percentage)
+    // 3. Remaining balance and payment progress (percentage)
     $remaining = $project['nilai_proyek'] - $totalPaid;
     $percentage = ($totalPaid > 0) ? ($totalPaid / $project['nilai_proyek']) * 100 : 0;
 
@@ -313,7 +315,7 @@
     </div> 
 
     <script>
-        // Start di atas saat direfresh
+        // Start at the top on reload
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
@@ -323,9 +325,7 @@
         window.addEventListener('load', () => {
             const loader = document.querySelector('.loader-overlay');
             if(loader) {
-                setTimeout(() => {
-                    loader.classList.add('hidden');
-                }, 1200); 
+                loader.classList.add('hidden');
             }
         });
 
@@ -334,7 +334,8 @@
         const body = document.body;
         const icon = themeToggle ? themeToggle.querySelector('i') : null;
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
+        let currentTheme = 'light';
+        try { currentTheme = localStorage.getItem('theme') || 'light'; } catch (_) { /* Storage unavailable on some local pages. */ }
         body.setAttribute('data-theme', currentTheme);
         if(icon) updateIcon(currentTheme);
 
@@ -344,7 +345,7 @@
                 const newTheme = theme === 'light' ? 'dark' : 'light';
 
                 body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
+                try { localStorage.setItem('theme', newTheme); } catch (_) { /* Session-only preference. */ }
                 updateIcon(newTheme);
             });
         }
@@ -360,7 +361,7 @@
             }
         }
 
-        // Efek fade-in pas di-scroll
+        // Fade-in effect on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'

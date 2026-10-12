@@ -74,7 +74,7 @@ html {
 .loader-letter {
   font-size: 6rem;
   font-weight: 700;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--white);
   border: 6px solid var(--border);
   box-shadow: 12px 12px 0 var(--border);
@@ -412,7 +412,7 @@ body[data-theme="dark"] .tape-sticker {
 }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #d0d0d0;
   color: var(--text);
   line-height: 1.6;
@@ -454,7 +454,7 @@ body {
   position: relative;
 }
 
-/* Custom Scrollbar - Brutalism Style */
+/* Custom scrollbar: brutalist style */
 body::-webkit-scrollbar {
   width: 16px;
   background: #d0d0d0;
@@ -509,7 +509,8 @@ body[data-theme="dark"] {
 }
 
 .section, .timeline-item, .skill-box {
-  opacity: 0;
+  /* Content remains readable when JavaScript fails or is disabled. */
+  opacity: 1;
   animation: none;
 }
 
@@ -802,6 +803,27 @@ body[data-theme="dark"] .job-desc i {
   font-weight: 600;
   color: var(--cyan);
   margin: 0;
+}
+
+/* The greeting types normally. The cursor only appears while typing. */
+.hero-greeting.is-typing #hero-greeting-typed::after {
+  content: "";
+  display: inline-block;
+  height: 0.85em;
+  border-right: 2px solid currentColor;
+  margin-left: 2px;
+  vertical-align: -0.08em;
+  animation: hero-typing-cursor 0.7s step-end infinite;
+}
+
+@keyframes hero-typing-cursor {
+  50% { border-color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-greeting.is-typing #hero-greeting-typed::after {
+    animation: none;
+  }
 }
 
 .hero-name {
@@ -1765,7 +1787,7 @@ body[data-theme="dark"] .stat-number {
 
 .btn {
   padding: 0.75rem 1.5rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
@@ -2061,7 +2083,7 @@ body[data-theme="dark"] .stat-number {
   border-radius: 0;
   box-shadow: 6px 6px 0 var(--border);
   padding: 0;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .leaflet-popup-content {
@@ -2166,7 +2188,7 @@ body[data-theme="dark"] .stat-number {
   font-weight: 700;
   font-size: 10px;
   white-space: nowrap;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   color: var(--text);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -2723,7 +2745,7 @@ body[data-theme="dark"] .map-popup-company span {
   transition: all 0.3s ease;
 }
 
-/* Contact Section - Sticky Notes */
+/* Contact section: sticky notes */
 .contact-container-compact {
   max-width: 900px;
   margin: 0 auto;
@@ -3357,11 +3379,11 @@ body[data-theme="dark"] .language-item:hover {
 }
 
 /* ==========================================================================
-   📱 GLOBAL MOBILE RESPONSIVE FIXES (Semua Perangkat Mobile & Tablet)
+   GLOBAL MOBILE RESPONSIVE FIXES (all phones and tablets)
    ========================================================================== */
 
 @media (max-width: 768px) {
-  /* 1. Menyesuaikan Ukuran Font Judul agar tidak kebesaran di HP */
+  /* 1. Scale heading font sizes down on phones */
   .projects-title,
   .project-detail-header .section-title-center {
     font-size: 2rem !important;
@@ -3369,13 +3391,13 @@ body[data-theme="dark"] .language-item:hover {
     line-height: 1.3 !important;
   }
   
-  /* 2. Mengurangi jarak kosong bagian atas halaman */
+  /* 2. Reduce empty space at the top of the page */
   .projects-header,
   .project-detail-header {
     padding: 100px 15px 30px 15px !important;
   }
 
-  /* 3. Memaksa Grid menjadi 1 kolom penuh ke bawah (Stacking) */
+  /* 3. Force grids into a single stacked column */
   .projects-grid-modern,
   .analysis-grid,
   .grid-2 {
@@ -3383,7 +3405,7 @@ body[data-theme="dark"] .language-item:hover {
     gap: 1.5rem !important;
   }
 
-  /* 4. Menghemat ruang (padding) pada kotak/card */
+  /* 4. Tighter padding on cards */
   .project-card,
   .technical-box,
   .card {
@@ -3394,14 +3416,14 @@ body[data-theme="dark"] .language-item:hover {
     font-size: 1.4rem !important;
   }
 
-  /* 5. Menyesuaikan ukuran Banner Gambar */
+  /* 5. Resize banner images */
   .banner-wrapper {
     margin-bottom: 2rem !important;
     border-width: 3px !important;
     box-shadow: 6px 6px 0 var(--border) !important;
   }
 
-  /* 6. Mencegah Code Snippet membuat layar HP bisa di-scroll ke samping */
+  /* 6. Stop code snippets from causing horizontal scroll on phones */
   .code-body {
     padding: 1rem !important;
   }
@@ -3421,7 +3443,7 @@ body[data-theme="dark"] .language-item:hover {
     padding: 0.4rem 0.8rem !important;
   }
 
-  /* 8. Merapikan Navbar Menu untuk Layar Sempit */
+  /* 8. Tidy the navbar on narrow screens */
   .nav-brand {
     font-size: 1.2rem !important;
   }
@@ -3436,7 +3458,7 @@ body[data-theme="dark"] .language-item:hover {
   }
 }
 
-/* Penyesuaian Ekstra untuk Layar HP yang sangat kecil (Lebar max 480px) */
+/* Extra adjustments for very small phones (max width 480px) */
 @media (max-width: 480px) {
   .projects-title,
   .project-detail-header .section-title-center {
@@ -3457,180 +3479,35 @@ body[data-theme="dark"] .language-item:hover {
   }
 }
 
-/* ==========================================================================
-[DITANDAI/DIHAPUS DARI SINI UNTUK INDEX.HTML] 
-Bagian CSS untuk "Navbar LazyFire Logo" dan "Creator Showcase" (Fana Project)
-telah di-comment/dihapus agar file index.html kamu jauh lebih clean.
-
-KODE YANG ADA DI BAWAH INI ADALAH:
-- .nav-lazyfire beserta state :hover dan turunannya
-- .section-compact
-- .creator-showcase beserta turunan logonya (.creator-label, .creator-project, dll)
-- Pengaturan Dark Mode untuk bagian creator-project dan nav-lazyfire
-- Pengaturan Responsive (@media max-width: 768px) khusus untuk bagian creator ini
-
-Silakan hapus atau pindahkan blok kode di bawah ini ke file CSS khusus 
-jika masih dipakai di file HTML lain (misalnya halaman khusus projects.html).
-==========================================================================
-*/
-
-/* .nav-lazyfire {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.75rem;
-  border: 3px solid var(--border);
-  background: var(--white);
-  box-shadow: 3px 3px 0 var(--border);
-  transition: all 0.2s ease;
-  text-decoration: none;
+/* =========================================================
+   Overflow fixes (portfolio upgrade)
+   Long inline code / words could push grid cards past the
+   screen edge on phones; the card content was clipped.
+   ========================================================= */
+.analysis-grid > *,
+.projects-grid-modern > * {
+  min-width: 0;
 }
 
-.nav-lazyfire:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 1px 1px 0 var(--border);
+.text code,
+.job-list code,
+.project-desc code {
+  overflow-wrap: anywhere;
 }
 
-.lazyfire-logo {
-  display: block;
-}
-
-.nav-lazyfire-text {
-  font-family: 'Caveat', cursive;
-  font-weight: 700;
-  font-size: 1.2rem;
-  color: var(--text);
-}
-
-
-.section-compact {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.creator-showcase {
-  text-align: center;
-  padding: 1rem;
-}
-
-.creator-label {
-  font-family: 'Caveat', cursive;
-  font-size: 1.8rem;
-  color: var(--text);
-  margin-bottom: 1rem;
-  opacity: 0.8;
-}
-
-.creator-project {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  background: var(--yellow);
-  border: 4px solid var(--border);
-  box-shadow: 6px 6px 0 var(--border);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  margin-bottom: 1rem;
-}
-
-.creator-project:hover {
-  transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0 var(--border);
-}
-
-.creator-logo {
-  display: block;
-}
-
-.creator-name {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -1px;
-}
-
-.creator-tagline {
-  font-size: 1.1rem;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-  opacity: 0.8;
-}
-
-.creator-github {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: var(--white);
-  border: 3px solid var(--border);
-  box-shadow: 4px 4px 0 var(--border);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.2s ease;
-}
-
-.creator-github:hover {
-  transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--border);
-}
-
-
-body[data-theme="dark"] .creator-project {
-  background: #3a3a3a;
-}
-
-body[data-theme="dark"] .nav-lazyfire {
-  background: #3a3a3a;
-}
-
-
-@media (max-width: 768px) {
-  .nav-lazyfire {
-    display: none;
-  }
-
-  .creator-showcase {
-    padding: 0.5rem;
-  }
-
-  .creator-label {
-    font-size: 1.4rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .creator-project {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    box-shadow: 4px 4px 0 var(--border);
-  }
-
-  .creator-name {
-    font-size: 1.5rem;
-  }
-
-  .creator-logo {
-    width: 50px;
-    height: 50px;
-  }
-
-  .creator-tagline {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-
-  .creator-github {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-    box-shadow: 3px 3px 0 var(--border);
-  }
-
-  .section-compact {
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+@media (max-width: 480px) {
+  .projects-header .section-title-center,
+  .project-detail-header .section-title-center {
+    font-size: 1.6rem !important;
+    padding: 0.75rem 1.25rem !important;
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 }
-*/
+
+/* Detail pages: the banner was centered (margin: auto) but the content
+   container below it was left-aligned. Center it to match. */
+.project-detail-header ~ .container {
+  margin-left: auto;
+  margin-right: auto;
+}
