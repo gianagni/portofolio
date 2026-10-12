@@ -1,0 +1,77 @@
+/* Project Journey | restores the original pirate-map visual to the modern portfolio.
+   This file is scoped to .project-journey to avoid changing other sections. */
+.project-journey { margin-block: 4rem; }
+.project-journey .pj-heading { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; }
+.project-journey .pj-heading .section-title { margin-block:.35rem 1.1rem; }
+.project-journey .pj-heading .section-lead { margin:0; max-width:680px; }
+.project-journey .pj-stamp { flex:0 0 auto; display:grid; place-content:center; width:76px; height:76px; border:3px solid var(--border); background:var(--yellow); box-shadow:5px 5px 0 var(--border); transform:rotate(8deg); text-align:center; font:700 .8rem/1.15 'Space Mono',monospace; color:#111; }
+/* Older neo-styles.css has a rotating-card journey experiment. Override it here. */
+.project-journey .journey-container.pj-grid { display:grid; grid-template-columns:minmax(0, .92fr) minmax(0, 1.08fr); gap:1.25rem; min-height:0; perspective:none; align-items:stretch; }
+.project-journey .journey-timeline.pj-timeline { grid-column:auto; grid-row:auto; transform:none !important; transform-origin:initial; transition:none; width:100%; height:520px; min-height:0; padding:0; overflow:auto; background:var(--white); box-shadow:7px 7px 0 var(--border); }
+.project-journey .pj-timeline-heading { position:sticky; top:0; z-index:5; padding:1.25rem; border-bottom:3px solid var(--border); background:var(--yellow); color:#111; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem; }
+.project-journey .pj-coordinates { font:700 .65rem/1.4 'Space Mono',monospace; }
+.project-journey .pj-log { padding:1.1rem; gap:.65rem; }
+.project-journey button.pj-journey-item { display:flex; width:100%; text-align:left; gap:.85rem; padding:1rem .8rem; border:2px solid transparent; border-left:4px solid var(--border); border-radius:0; background:transparent; color:var(--text); font:inherit; cursor:pointer; box-shadow:none; transition:background-color .15s ease,border-color .15s ease; }
+.project-journey button.pj-journey-item:hover,
+.project-journey button.pj-journey-item.is-active { transform:none; background:var(--yellow); border-color:var(--border); }
+.project-journey button.pj-journey-item:focus-visible { outline:3px solid var(--pink); outline-offset:2px; }
+.project-journey .pj-journey-item .timeline-dot { flex-shrink:0; margin-top:.35rem; }
+.project-journey .pj-journey-item .timeline-dot::after { display:none; }
+.project-journey .pj-journey-item.is-active .timeline-dot { background:var(--pink); }
+.project-journey .timeline-title { display:block; font-size:1.08rem; }
+.project-journey .timeline-description { display:block; font:400 .88rem/1.5 Inter,system-ui,sans-serif; margin:.4rem 0; }
+.project-journey .pj-item-foot { display:flex; justify-content:space-between; font:700 .73rem/1.3 'Space Mono',monospace; }
+.project-journey .pj-tiny-status { display:inline-block; padding:2px 5px; background:var(--cyan); border:1px solid var(--border); margin-left:.4rem; font:.65rem/1.3 'Space Mono',monospace; color:#111; vertical-align:middle; }
+.project-journey .journey-map-container.pj-map-frame { grid-column:auto; position:relative; min-width:0; width:100%; height:520px; min-height:0; overflow:hidden; border:4px solid var(--border); box-shadow:7px 7px 0 var(--border); background:#e4d4a9; }
+.project-journey #journey-map { position:absolute; inset:0; width:100%; height:100%; z-index:1; background:#e9d9b5; }
+.project-journey .pj-map-fallback { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:.65rem; z-index:2; background:radial-gradient(ellipse at 58% 42%,#f3e5c7,#d9bc8d); color:#3d2a1a; text-align:center; font:700 .85rem/1.5 'Space Mono',monospace; }
+.project-journey .pj-map-fallback span:last-child { font-size:.7rem; font-weight:400; }
+.project-journey .pj-fallback-pin { font-size:3rem; color:#af513d; }
+.project-journey .pj-map-frame.pj-map-ready .pj-map-fallback { display:none; }
+.project-journey .pj-map-frame .leaflet-container { background:#e4d4a9; }
+.project-journey .pj-map-frame .leaflet-tile-pane { filter:sepia(.45) saturate(.7) contrast(.91); }
+.project-journey .map-overlay-lines { z-index:3; opacity:.15; }
+.project-journey .map-pirate-overlay { position:absolute; bottom:-22px; left:-13px; width:clamp(115px,18vw,185px); height:auto; pointer-events:none; z-index:7; filter:drop-shadow(4px 5px 0 #14110e); }
+.project-journey .pj-compass { z-index:5; position:absolute; top:18px; left:18px; display:flex; flex-direction:column; align-items:center; width:48px; height:55px; padding:4px; background:#f7e5ac; color:#3b2a12; border:2px solid #3b2a12; box-shadow:3px 3px 0 #3b2a12; font:700 .9rem/1 'Space Mono',monospace; pointer-events:none; }
+.project-journey .pj-compass span { font-size:1.75rem; }
+.project-journey .pj-map-note { z-index:5; position:absolute; top:18px; left:78px; display:block; padding:.5rem .65rem; border:2px solid #20160f; background:var(--yellow); font:700 .7rem 'Space Mono',monospace; color:#111; pointer-events:none; }
+.project-journey .pj-map-note span { color:#e74d64; }
+.project-journey .pj-spotlight { z-index:6; position:absolute; right:14px; bottom:33px; width:min(225px,52%); border:3px solid #1c1711; box-shadow:5px 5px 0 #1c1711; padding:.85rem; background:#fffaf0; color:#18130c; display:flex; flex-direction:column; gap:.45rem; }
+.project-journey .pj-spotlight-label { font:700 .64rem 'Space Mono',monospace; letter-spacing:.04em; }
+.project-journey .pj-spotlight strong { font:800 clamp(.95rem,1.7vw,1.25rem)/1.2 Inter,sans-serif; }
+.project-journey .pj-spotlight a { color:#111; font:700 .75rem 'Space Mono',monospace; text-decoration:underline; }
+.project-journey .pj-map-source { position:absolute; right:0; bottom:0; left:0; z-index:5; width:100%; background:rgba(255,249,224,.9); padding:.22rem .45rem; text-align:right; color:#302818; font:400 .66rem 'Space Mono',monospace; pointer-events:auto; }
+.project-journey .pj-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1.25rem; margin-top:1.7rem; }
+.project-journey .pj-footer p { flex:1 1 350px; font:400 .88rem/1.6 Inter,sans-serif; }
+.project-journey .pj-all-projects { display:inline-flex; align-items:center; gap:.6rem; padding:.7rem 1rem; background:var(--yellow); border:3px solid var(--border); box-shadow:4px 4px 0 var(--border); color:#111; font:700 .8rem 'Space Mono',monospace; text-decoration:none; }
+.project-journey .pj-all-projects:hover { transform:translate(2px,2px); box-shadow:2px 2px 0 var(--border); }
+.project-journey .pj-map-source a { color:#302818; text-decoration:underline; }
+.project-journey .pj-map-frame .leaflet-control-attribution { display:none; }
+.project-journey .pj-map-frame .leaflet-popup-content-wrapper { background:#fffaf0; color:#111; }
+.project-journey .pj-map-frame .leaflet-popup-content { margin:0; min-width:170px; }
+.project-journey .pj-popup { padding:1.1rem; font:400 .86rem/1.5 Inter,sans-serif; }
+.project-journey .pj-popup strong { display:block; margin-bottom:.25rem; font:700 1.1rem/1.3 Inter,sans-serif; }
+.project-journey .pj-popup a { display:inline-block; margin-top:.5rem; font-weight:700; }
+.project-journey .pj-popup small { font:700 .67rem 'Space Mono',monospace; color:#615139; }
+.project-journey .neo-marker-label { color:#111 !important; }
+@media (max-width: 850px) {
+  .project-journey .journey-container.pj-grid { grid-template-columns:1fr; }
+  .project-journey .journey-timeline.pj-timeline { height:auto; max-height:480px; overflow:auto; }
+  .project-journey .journey-map-container.pj-map-frame { height:430px; }
+  .project-journey .pj-stamp { width:60px; height:60px; font-size:.7rem; }
+}
+@media (max-width: 480px) {
+  .project-journey .pj-heading .section-lead { font-size:.83rem; }
+  .project-journey .pj-timeline-heading { padding:.9rem; }
+  .project-journey .pj-coordinates { display:none; }
+  .project-journey .pj-log { padding:.5rem; }
+  .project-journey .journey-map-container.pj-map-frame { height:390px; }
+  .project-journey .map-pirate-overlay { width:112px; left:-9px; bottom:-13px; }
+  .project-journey .pj-map-note { left:74px; font-size:.6rem; }
+  .project-journey .pj-spotlight { width:min(190px,63%); padding:.65rem; right:8px; bottom:27px; }
+  .project-journey .pj-spotlight strong { font-size:1rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .project-journey .pj-journey-item, .project-journey .pj-all-projects { transition:none !important; animation:none !important; }
+  .project-journey .neo-marker-pin-current { animation:none !important; }
+}

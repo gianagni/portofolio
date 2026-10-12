@@ -47,6 +47,8 @@
 
     <link rel="stylesheet" href="neo-styles.css">
     <link rel="stylesheet" href="neo-sections.css">
+    <link rel="stylesheet" href="journey-map.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
@@ -590,6 +592,94 @@
                 </article>
             </div>
         </section>
+
+
+<!-- Project Journey brings back the original pirate map from the earlier portfolio. -->
+<section class="section project-journey journey-section" id="journey" aria-labelledby="journey-heading">
+    <div class="pj-heading">
+        <div>
+            <span class="mono-label">[ THE DEVELOPER'S MAP ]</span>
+            <h2 class="section-title" id="journey-heading">PROJECT JOURNEY</h2>
+            <p class="section-lead">A few stops along the way, from web applications to developer tooling. Select a project to explore its story on the map.</p>
+        </div>
+        <span class="pj-stamp" aria-hidden="true">JKT<br>BASE</span>
+    </div>
+    <div class="journey-container pj-grid">
+        <div class="journey-timeline pj-timeline" aria-label="Project journey timeline">
+            <div class="pj-timeline-heading">
+                <span class="mono-label">CAPTAIN'S LOG</span>
+                <span class="pj-coordinates">06.2088° S / 106.8456° E</span>
+            </div>
+            <div class="timeline-list pj-log">
+                <button type="button" class="timeline-item-flat pj-journey-item is-active" data-project="flowprint" aria-pressed="true">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-content-flat">
+                        <span class="timeline-title">Flowprint <span class="pj-tiny-status">ALPHA</span></span>
+                        <span class="timeline-description">A developer CLI exploring codebase structure and tracing what can be confirmed versus inferred.</span>
+                        <span class="pj-item-foot">Developer tooling <span aria-hidden="true">↗</span></span>
+                    </span>
+                </button>
+                <button type="button" class="timeline-item-flat pj-journey-item" data-project="lahena" aria-pressed="false">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-content-flat">
+                        <span class="timeline-title">Lahena</span>
+                        <span class="timeline-description">Maps career targets to skills, learning gaps, and practical mini projects.</span>
+                        <span class="pj-item-foot">Career readiness <span aria-hidden="true">↗</span></span>
+                    </span>
+                </button>
+                <button type="button" class="timeline-item-flat pj-journey-item" data-project="ngmarket" aria-pressed="false">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-content-flat">
+                        <span class="timeline-title">NG Market</span>
+                        <span class="timeline-description">A digital-product storefront with checkout, payment handling, and admin verification.</span>
+                        <span class="pj-item-foot">Commerce system <span aria-hidden="true">↗</span></span>
+                    </span>
+                </button>
+                <button type="button" class="timeline-item-flat pj-journey-item" data-project="disclosekit" aria-pressed="false">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <span class="timeline-content-flat">
+                        <span class="timeline-title">DiscloseKit</span>
+                        <span class="timeline-description">A browser-first report builder for responsible vulnerability disclosure.</span>
+                        <span class="pj-item-foot">Security workflow <span aria-hidden="true">↗</span></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="journey-map-container pj-map-frame">
+            <div id="journey-map" aria-label="Interactive project map centered on Jakarta, Indonesia"></div>
+            <div class="pj-map-fallback" aria-hidden="true">
+                <span class="pj-fallback-pin">✕</span>
+                <strong>JAKARTA, INDONESIA</strong>
+                <span>Home base for the journey</span>
+            </div>
+            <svg class="map-overlay-lines" viewBox="0 0 500 500" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <defs>
+                    <pattern id="pj-chart-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#332716" stroke-width="1.3" opacity=".5"/>
+                    </pattern>
+                    <pattern id="pj-scratches" width="170" height="170" patternUnits="userSpaceOnUse">
+                        <path d="M 12 25 l 42 6 M 112 72 l 38 -5 M 36 130 l 57 -4" fill="none" stroke="#2b2118" stroke-width="1.6" opacity=".45"/>
+                    </pattern>
+                </defs>
+                <rect width="500" height="500" fill="url(#pj-chart-grid)"/>
+                <rect width="500" height="500" fill="url(#pj-scratches)"/>
+            </svg>
+            <div class="pj-map-note">JAKARTA <span>✦</span> PROJECT BASE</div>
+            <img src="image/pirat.png" alt="" class="map-pirate-overlay" width="200" height="200" loading="lazy" decoding="async">
+            <div class="pj-compass" aria-hidden="true">N <span>✦</span></div>
+            <div class="pj-spotlight" aria-live="polite">
+        <span class="pj-spotlight-label">SELECTED PROJECT</span>
+        <strong data-pj-selected-title>Flowprint</strong>
+        <a data-pj-selected-link href="#work-flowprint">View project <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="pj-map-source">Map data <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a></div>
+        </div>
+    </div>
+    <div class="pj-footer">
+        <p><strong>One home base, different projects.</strong> The map marks Jakarta as my base, not separate client or project locations.</p>
+        <a class="pj-all-projects" href="projects.html">Explore all projects <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </div>
+</section>
 
         <section class="section" id="process">
             <h2 class="section-title">HOW I BUILD</h2>
@@ -1285,5 +1375,7 @@
         updateProgressBar();
 
     </script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="journey-map.js" defer></script>
 </body>
 </html>
