@@ -1,0 +1,10 @@
+{
+  "description": "A personal portfolio presenting Jakarta full-stack developer Nandito Gianza Agni’s projects, experience, technical skills, and contact links for recruiters and collaborators.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

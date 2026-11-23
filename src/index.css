@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --color-paper: #FAFAF7;
+  --color-ink: #111111;
+  --color-muted: #71717A;
+  --color-hairline: #E6E6E0;
+  --color-terminal: #101010;
+  --color-prompt: #22C55E;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #FAFAF7;
+    color: #111111;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    background-color: #FAFAF7;
+    color: #111111;
+  }
+}
+
+.dot-grid {
+  background-image: radial-gradient(circle, #E6E6E0 1px, transparent 1.5px);
+  background-size: 24px 24px;
+  background-position: top left;
+}
+
+@keyframes terminal-blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background-color: #E4E4E7;
+  vertical-align: -2px;
+  animation: terminal-blink 1.05s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-cursor {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+.fade-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
